@@ -120,9 +120,63 @@
         .btn-delete:hover { background: var(--accent-danger); border-color: var(--accent-danger); }
         .empty-state { text-align: center; padding: 60px 20px; color: #a1a1aa; font-weight: 800; font-size: 1.1rem; width: 100%; }
 
+        /* 🌟 PREMIUM INSET BOX SHADOWS FOR SMALL CARDS 🌟 */
+        .user-stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 25px; }
+        .stat-card { 
+            background: #0a0a0c; 
+            border: 1px solid rgba(255,255,255,0.03); 
+            border-radius: 18px; 
+            padding: 22px; 
+            display: flex; 
+            align-items: center; 
+            gap: 18px; 
+            box-shadow: inset 0 10px 25px rgba(0,0,0,0.9), inset 0 -2px 5px rgba(255,255,255,0.02), 0 4px 10px rgba(0,0,0,0.5);
+            transition: 0.3s;
+        }
+        .stat-card i { 
+            font-size: 2rem; 
+            padding: 16px; 
+            border-radius: 14px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4), inset 0 0 10px rgba(255,255,255,0.05);
+        }
+        .stat-card h4 { color: #a1a1aa; font-size: 0.9rem; font-weight: 800; text-transform: uppercase; margin-bottom: 5px; display:flex; align-items: center;}
+        .stat-card h2 { color: #fff; font-size: 1.8rem; font-weight: 900; line-height: 1; }
+        
         /* ADVANCED LIVE USERS BLINKING DOT */
-        .live-dot { display: inline-block; width: 10px; height: 10px; background-color: #ef4444; border-radius: 50%; box-shadow: 0 0 10px #ef4444; animation: blinkLive 1.5s infinite; margin-left: 5px; margin-bottom: 2px;}
+        .live-dot { display: inline-block; width: 10px; height: 10px; background-color: #ef4444; border-radius: 50%; box-shadow: 0 0 10px #ef4444; animation: blinkLive 1.5s infinite; margin-left: 8px; margin-bottom: 2px;}
         @keyframes blinkLive { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.3; transform: scale(0.85); } }
+
+        .status-badge { display: inline-block; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; }
+        .status-active { background: rgba(16, 185, 129, 0.2); color: var(--accent-success); }
+        .status-blocked { background: rgba(239, 68, 68, 0.2); color: var(--accent-danger); border: 1px solid rgba(239, 68, 68, 0.3); }
+        .btn-block, .btn-unblock { border-radius: 8px; font-size: 0.85rem; font-weight: 800; cursor: pointer; padding: 6px 12px; margin-top: 5px; width: 100%; transition: 0.3s; display: inline-flex; justify-content: center; align-items: center; gap: 6px; border: none; }
+        .btn-block { background: rgba(239, 68, 68, 0.15); color: var(--accent-danger); border: 1px solid rgba(239, 68, 68, 0.4); }
+        .btn-block:hover { background: var(--accent-danger); color: #fff;}
+        .btn-unblock { background: rgba(16, 185, 129, 0.15); color: var(--accent-success); border: 1px solid rgba(16, 185, 129, 0.4); }
+        .btn-unblock:hover { background: var(--accent-success); color: #fff;}
+
+        /* 🌟 EXACT MAIN APP PROMPTS UI 🌟 */
+        .telegram-prompt-wrapper { position: relative; margin-bottom: 40px; }
+        .prompt-actions-floating { position: absolute; top: -12px; right: 0px; display: flex; gap: 8px; z-index: 10; }
+        .btn-icon { width: 34px; height: 34px; border-radius: 8px; border: none; cursor: pointer; display: flex; justify-content: center; align-items: center; font-size: 0.95rem; transition: 0.3s; }
+        .btn-edit { background: rgba(59, 130, 246, 0.15); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.2); }
+        .btn-edit:hover { background: #3b82f6; color: #fff; }
+        .btn-delete { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.2); }
+        .btn-delete:hover { background: #ef4444; color: #fff; }
+        
+        .prompt-instruction-text { color: #ffffff; font-weight: 700; font-size: 15px; margin-bottom: 12px; line-height: 1.6; padding-right: 80px; font-family: 'Poppins', sans-serif;}
+        .telegram-prompt-card { background: #121212; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); border-left: 4px solid #8b5cf6; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .telegram-prompt-header { background: rgba(255,255,255,0.05); padding: 14px 18px; font-weight: 800; color: #fff; font-size: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; gap: 8px; font-family: 'Poppins', sans-serif;}
+        .telegram-prompt-body { padding: 20px; color: #a1a1aa; font-size: 13px; font-family: monospace, sans-serif; white-space: pre-wrap; word-break: break-word; line-height: 1.6; font-weight: 600; }
+        .telegram-prompt-footer { padding: 10px; background: rgba(0,0,0,0.4); border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: center; }
+        .telegram-copy-btn { background: transparent; color: #fff; border: none; font-size: 13px; font-weight: 800; padding: 10px; cursor: pointer; display: flex; align-items: center; gap: 8px; letter-spacing: 0.5px; width: 100%; justify-content: center; font-family: 'Poppins', sans-serif; transition: 0.3s; outline: none; }
+        .telegram-copy-btn:hover { background: rgba(255,255,255,0.05); color: #8b5cf6; border-radius: 8px; }
+
+        /* Chart Fix */
+        .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 30px; }
+        .chart-box { background: rgba(15, 15, 20, 0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 25px; width: 100%; height: 350px; display: flex; flex-direction: column; justify-content: center; align-items: center; box-sizing: border-box; }
+        .canvas-wrapper { position: relative; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+        canvas { max-width: 100%; max-height: 100%; margin: 0 auto; }
 
         .log-table-img { width: 40px; height: 55px; object-fit: cover; border-radius: 6px; margin-right: 15px;}
         .log-badge { padding: 6px 12px; border-radius: 8px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; display: inline-flex; align-items: center; gap: 5px;}
@@ -138,50 +192,9 @@
         .log-admin-name { font-weight: 800; color: #fff; text-transform: uppercase; font-size: 0.95rem;}
         .log-admin-email { font-size: 0.8rem; color: #a1a1aa; font-weight: 700; }
         
-        .btn-clean-round { 
-            background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.4); border-radius: 50%; width: 44px; height: 44px; display: flex; justify-content: center; align-items: center; font-size: 1.1rem; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); flex-shrink: 0; box-shadow: 0 4px 10px rgba(239, 68, 68, 0.1);
-        }
+        .btn-clean-round { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.4); border-radius: 50%; width: 44px; height: 44px; display: flex; justify-content: center; align-items: center; font-size: 1.1rem; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); flex-shrink: 0; box-shadow: 0 4px 10px rgba(239, 68, 68, 0.1); }
         .btn-clean-round:hover { background: #ef4444; color: #fff; transform: scale(1.1) rotate(15deg); box-shadow: 0 6px 15px rgba(239, 68, 68, 0.3); }
         .btn-clean-round i { padding: 0 !important; background: transparent !important; }
-
-        /* 🌟 PREMIUM PROMPTS UI (Exactly like Main App) 🌟 */
-        .prompt-item-container { margin-bottom: 35px; }
-        .prompt-title-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-        .prompt-main-title { color: #ffffff; font-size: 16px; font-weight: 800; display: flex; align-items: center; gap: 8px; margin: 0; font-family: 'Poppins', sans-serif;}
-        
-        .prompt-actions { display: flex; gap: 8px; flex-shrink: 0; }
-        .btn-icon { width: 34px; height: 34px; border-radius: 8px; border: none; cursor: pointer; display: flex; justify-content: center; align-items: center; font-size: 0.95rem; transition: 0.3s; }
-        .btn-edit { background: rgba(59, 130, 246, 0.15); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.2); }
-        .btn-edit:hover { background: #3b82f6; color: #fff; }
-        .btn-delete { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.2); }
-        .btn-delete:hover { background: #ef4444; color: #fff; }
-        
-        .telegram-prompt-card { background: #1a1a1f; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); border-left: 4px solid #8b5cf6; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .prompt-instruction-box { padding: 16px 20px; background: rgba(255,255,255,0.05); color: #e4e4e7; font-size: 14px; font-weight: 600; line-height: 1.5; border-bottom: 1px solid rgba(0,0,0,0.3); font-family: 'Poppins', sans-serif; }
-        .telegram-prompt-body { padding: 20px; color: #a1a1aa; font-size: 13px; font-family: monospace, sans-serif; white-space: pre-wrap; word-break: break-word; line-height: 1.6; font-weight: 600;}
-        .telegram-prompt-footer { padding: 10px; background: rgba(0,0,0,0.4); border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: center; }
-        .telegram-copy-btn { background: transparent; color: #fff; border: none; font-size: 13px; font-weight: 800; padding: 10px; cursor: pointer; display: flex; align-items: center; gap: 8px; letter-spacing: 0.5px; width: 100%; justify-content: center; font-family: 'Poppins', sans-serif; transition: 0.3s;}
-        .telegram-copy-btn:hover { color: #8b5cf6; background: rgba(255,255,255,0.03); border-radius: 8px;}
-
-        /* Chart Fix */
-        .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 30px; }
-        .chart-box { background: rgba(15, 15, 20, 0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 25px; width: 100%; height: 350px; display: flex; flex-direction: column; justify-content: center; align-items: center; box-sizing: border-box; }
-        .canvas-wrapper { position: relative; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
-        canvas { max-width: 100%; max-height: 100%; margin: 0 auto; }
-
-        .user-stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 25px; }
-        .stat-card { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 20px; display: flex; align-items: center; gap: 18px; }
-        .stat-card i { font-size: 2rem; padding: 15px; border-radius: 14px; background: rgba(255,255,255,0.05); }
-        .stat-card h4 { color: #a1a1aa; font-size: 0.9rem; font-weight: 800; text-transform: uppercase; margin-bottom: 5px; display:flex; align-items: center;}
-        .stat-card h2 { color: #fff; font-size: 1.8rem; font-weight: 900; line-height: 1; }
-        .status-badge { display: inline-block; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; }
-        .status-active { background: rgba(16, 185, 129, 0.2); color: var(--accent-success); }
-        .status-blocked { background: rgba(239, 68, 68, 0.2); color: var(--accent-danger); border: 1px solid rgba(239, 68, 68, 0.3); }
-        .btn-block, .btn-unblock { border-radius: 8px; font-size: 0.85rem; font-weight: 800; cursor: pointer; padding: 6px 12px; margin-top: 5px; width: 100%; transition: 0.3s; display: inline-flex; justify-content: center; align-items: center; gap: 6px; border: none; }
-        .btn-block { background: rgba(239, 68, 68, 0.15); color: var(--accent-danger); border: 1px solid rgba(239, 68, 68, 0.4); }
-        .btn-block:hover { background: var(--accent-danger); color: #fff;}
-        .btn-unblock { background: rgba(16, 185, 129, 0.15); color: var(--accent-success); border: 1px solid rgba(16, 185, 129, 0.4); }
-        .btn-unblock:hover { background: var(--accent-success); color: #fff;}
 
         /* MODAL (Drag & Drop Editing) */
         .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); z-index: 2000; display: none; justify-content: center; align-items: center; opacity: 0; padding: 20px; }
@@ -338,8 +351,8 @@
                 <div class="premium-form-card" style="margin-bottom: 30px;">
                     <div class="card-header"><i class="fas fa-plus-circle"></i> Add New Prompt</div>
                     <div class="compact-grid">
-                        <div class="compact-group full-width"><input type="text" id="newPromptTitle" class="compact-input" placeholder="Prompt Title (e.g. 2. Free Image Hosting Sites.)"></div>
-                        <div class="compact-group full-width"><textarea id="newPromptInstruction" class="compact-input" placeholder="Instructions (e.g. ImgBB par Start uploading par click karein...)" rows="2"></textarea></div>
+                        <div class="compact-group full-width"><input type="text" id="newPromptTitle" class="compact-input" placeholder="Prompt Title (e.g. 1. How to use?)"></div>
+                        <div class="compact-group full-width"><textarea id="newPromptInstruction" class="compact-input" placeholder="Instructions (e.g. Bas is prompt ko copy karein...)" rows="2"></textarea></div>
                         <div class="compact-group full-width"><textarea id="newPromptText" class="compact-input" placeholder="Paste link or code here..." rows="3"></textarea></div>
                         <button class="btn-compact-submit" onclick="addPrompt(this)"><i class="fas fa-save"></i> Save Prompt</button>
                     </div>
@@ -354,15 +367,15 @@
                     
                     <div class="user-stats-grid">
                         <div class="stat-card">
-                            <i class="fas fa-exclamation-triangle" style="color:#ef4444; background:rgba(239, 68, 68, 0.1);"></i>
+                            <i class="fas fa-exclamation-triangle" style="color:#ef4444; background:rgba(239, 68, 68, 0.15);"></i>
                             <div class="stat-info"><h4>Pending Issues</h4><h2 id="statPendingReports">0</h2></div>
                         </div>
                         <div class="stat-card">
-                            <i class="fas fa-check-circle" style="color:#10b981; background:rgba(16, 185, 129, 0.1);"></i>
+                            <i class="fas fa-check-circle" style="color:#10b981; background:rgba(16, 185, 129, 0.15);"></i>
                             <div class="stat-info"><h4>Resolved</h4><h2 id="statResolvedReports">0</h2></div>
                         </div>
                         <div class="stat-card">
-                            <i class="fas fa-inbox" style="color:#3b82f6; background:rgba(59, 130, 246, 0.1);"></i>
+                            <i class="fas fa-inbox" style="color:#3b82f6; background:rgba(59, 130, 246, 0.15);"></i>
                             <div class="stat-info"><h4>Total Reports</h4><h2 id="statTotalReports">0</h2></div>
                         </div>
                     </div>
@@ -414,18 +427,18 @@
                     <div class="card-header-large"><div class="title-left"><i class="fas fa-users-shield"></i> User Access Management</div></div>
                     
                     <div class="user-stats-grid">
-                        <!-- Advanced Live Visitors Card -->
+                        <!-- Advanced Live Visitors Card with Inset Shadow -->
                         <div class="stat-card" style="border-color:rgba(16, 185, 129, 0.3);">
-                            <i class="fas fa-satellite-dish" style="color:#10b981; background:rgba(16, 185, 129, 0.1);"></i>
+                            <i class="fas fa-satellite-dish" style="color:#10b981; background:rgba(16, 185, 129, 0.15);"></i>
                             <div class="stat-info">
                                 <h4>Live On Site <span class="live-dot"></span></h4>
                                 <h2 id="statLiveUsers" style="color: #10b981;">0</h2>
                             </div>
                         </div>
 
-                        <div class="stat-card"><i class="fas fa-users" style="color:#3b82f6; background:rgba(59, 130, 246, 0.1);"></i><div class="stat-info"><h4>Total Logins</h4><h2 id="statTotalUsers">0</h2></div></div>
-                        <div class="stat-card"><i class="fas fa-user-check" style="color:#10b981; background:rgba(16, 185, 129, 0.1);"></i><div class="stat-info"><h4>Active Valid</h4><h2 id="statActiveUsers">0</h2></div></div>
-                        <div class="stat-card" style="border-color:rgba(239, 68, 68, 0.2);"><i class="fas fa-user-slash" style="color:#ef4444; background:rgba(239, 68, 68, 0.1);"></i><div class="stat-info"><h4>Deleted / Invalid</h4><h2 id="statInvalidUsers">0</h2></div></div>
+                        <div class="stat-card"><i class="fas fa-users" style="color:#3b82f6; background:rgba(59, 130, 246, 0.15);"></i><div class="stat-info"><h4>Total Logins</h4><h2 id="statTotalUsers">0</h2></div></div>
+                        <div class="stat-card"><i class="fas fa-user-check" style="color:#10b981; background:rgba(16, 185, 129, 0.15);"></i><div class="stat-info"><h4>Active Valid</h4><h2 id="statActiveUsers">0</h2></div></div>
+                        <div class="stat-card" style="border-color:rgba(239, 68, 68, 0.2);"><i class="fas fa-user-slash" style="color:#ef4444; background:rgba(239, 68, 68, 0.15);"></i><div class="stat-info"><h4>Deleted / Invalid</h4><h2 id="statInvalidUsers">0</h2></div></div>
                     </div>
 
                     <div class="filter-row">
@@ -591,19 +604,19 @@
             window.copyToClipboard(text); 
         }
 
-        /* LIVE USERS SIMULATION LOGIC */
+        /* 🌟 LIVE USERS SIMULATION LOGIC 🌟 */
         function simulateLiveUsers() {
             const liveElement = document.getElementById('statLiveUsers');
             if(!liveElement) return;
-            let baseUsers = Math.floor(Math.random() * 15) + 20; 
+            let baseUsers = Math.floor(Math.random() * 15) + 20; // Default 20 to 35 users
             liveElement.innerText = baseUsers;
             setInterval(() => {
-                let change = Math.floor(Math.random() * 5) - 2; 
+                let change = Math.floor(Math.random() * 5) - 2; // -2 to +2 fluctuation
                 baseUsers += change;
                 if(baseUsers < 5) baseUsers = 5; 
                 if(baseUsers > 60) baseUsers = 60; 
                 liveElement.innerText = baseUsers;
-            }, 5000);
+            }, 4000); // Changes every 4 seconds
         }
         simulateLiveUsers();
     </script>
@@ -672,7 +685,7 @@
                     onSnapshot(query(collection(db, "activity_logs"), orderBy("timestamp", "desc"), limit(100)), (snapshot) => { dbLogs = []; snapshot.forEach(doc => { let l = doc.data(); l.id = doc.id; dbLogs.push(l); }); renderLogs(); });
                     onSnapshot(collection(db, "users"), (snapshot) => { dbUsers = []; snapshot.forEach(doc => { let d = doc.data(); d.uid = doc.id; dbUsers.push(d); }); window.handleUserFilterChange(); window.updateLiveUserStats(); });
                     
-                    // FETCH AND RENDER PROMPTS (New Main App Style)
+                    // 🌟 FETCH AND RENDER PROMPTS (Main App Style Match) 🌟
                     onSnapshot(query(collection(db, "prompts"), orderBy("createdAt", "asc")), (snapshot) => {
                         dbPrompts = [];
                         const container = document.getElementById('promptsContainer'); container.innerHTML = '';
@@ -684,20 +697,20 @@
                             const safeInstruction = data.instruction ? data.instruction.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\n/g, "<br>") : "";
                             let instructionHTML = ''; 
                             if(safeInstruction) { 
-                                instructionHTML = `<div class="prompt-instruction-box">${safeInstruction}</div>`; 
+                                instructionHTML = `<div class="prompt-instruction-text">${safeInstruction}</div>`; 
                             }
                             
                             container.innerHTML += `
-                            <div class="prompt-item-container">
-                                <div class="prompt-title-header">
-                                    <h3 class="prompt-main-title"><i class="fas fa-lightbulb" style="color:#fbbf24;"></i> ${data.title}</h3>
-                                    <div class="prompt-actions">
-                                        <button class="btn-icon btn-edit" onclick="window.openEditPromptModal('${id}')" title="Edit"><i class="fas fa-edit"></i></button>
-                                        <button class="btn-icon btn-delete" onclick="window.deletePrompt('${id}')" title="Delete"><i class="fas fa-trash"></i></button>
-                                    </div>
+                            <div class="telegram-prompt-wrapper">
+                                <div class="prompt-actions-floating">
+                                    <button class="btn-icon btn-edit" onclick="window.openEditPromptModal('${id}')" title="Edit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-icon btn-delete" onclick="window.deletePrompt('${id}')" title="Delete"><i class="fas fa-trash"></i></button>
                                 </div>
+                                ${instructionHTML}
                                 <div class="telegram-prompt-card">
-                                    ${instructionHTML}
+                                    <div class="telegram-prompt-header">
+                                        <i class="fas fa-lightbulb" style="color:#fbbf24;"></i> ${data.title}
+                                    </div>
                                     <div class="telegram-prompt-body" id="prompt_text_${id}">${safeText}</div>
                                     <div class="telegram-prompt-footer">
                                         <button class="telegram-copy-btn" onclick="copyPromptFromDOM('${id}')"><i class="far fa-copy"></i> COPY CODE</button>
