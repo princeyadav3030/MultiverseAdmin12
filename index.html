@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Multiverse Books - Premium Admin Panel</title>
+    <title>Spidy Book Hub - Premium Vault</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -140,73 +140,21 @@
         .btn-clean-round:hover { background: #ef4444; color: #fff; transform: scale(1.1) rotate(15deg); box-shadow: 0 6px 15px rgba(239, 68, 68, 0.3); }
         .btn-clean-round i { padding: 0 !important; background: transparent !important; }
 
-        /* ==========================================
-           FIXED PROMPTS UI (Exactly Like Image 2 & 3)
-           ========================================== */
+        /* FIXED PROMPTS UI */
         .prompt-item-container { margin-bottom: 40px; }
         .prompt-item-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; padding: 0 5px; gap: 10px; }
         .prompt-main-title { font-size: 1.15rem; color: #ffffff; font-weight: 800; line-height: 1.4; word-break: break-word; margin: 0; }
-        
-        /* Chhote Icon buttons taki layout na bigde */
         .prompt-actions { display: flex; gap: 8px; flex-shrink: 0; }
         .btn-icon { width: 34px; height: 34px; border-radius: 8px; border: none; cursor: pointer; display: flex; justify-content: center; align-items: center; font-size: 0.95rem; transition: 0.3s; }
         .btn-edit { background: rgba(59, 130, 246, 0.15); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.2); }
         .btn-edit:hover { background: #3b82f6; color: #fff; }
         .btn-delete { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.2); }
         .btn-delete:hover { background: #ef4444; color: #fff; }
-        
-        /* Modern Card Structure */
-        .prompt-card-modern { 
-            background: linear-gradient(to bottom, rgba(30, 30, 35, 0.95), rgba(15, 15, 18, 0.98)); 
-            border-left: 4px solid var(--accent-primary); 
-            border-radius: 16px; 
-            overflow: hidden; 
-            border: 1px solid rgba(255,255,255,0.05);
-            border-left: 4px solid var(--accent-primary);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4); 
-        }
-        .prompt-instruction { 
-            padding: 18px 22px; 
-            color: #e4e4e7; 
-            font-size: 0.95rem; 
-            font-weight: 700; 
-            line-height: 1.6; 
-            background: rgba(255, 255, 255, 0.05); 
-            border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-        }
-        .prompt-text { 
-            padding: 18px 22px; 
-            color: #fff; 
-            font-size: 0.95rem; 
-            background: rgba(0, 0, 0, 0.4); 
-            border-bottom: 1px solid rgba(255, 255, 255, 0.02); 
-            word-break: break-word; 
-            white-space: pre-wrap; 
-            font-weight: 600; 
-            font-family: monospace, sans-serif;
-        }
-        .prompt-copy-btn { 
-            width: 100%; 
-            background: rgba(10, 10, 12, 0.8); 
-            color: #fff; 
-            border: none; 
-            padding: 18px; 
-            font-weight: 900; 
-            font-size: 0.95rem; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-            cursor: pointer; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            gap: 10px; 
-            transition: 0.3s; 
-        }
-        .prompt-copy-btn:hover { 
-            background: rgba(255, 255, 255, 0.05); 
-            color: var(--accent-primary); 
-        }
-        /* ========================================== */
+        .prompt-card-modern { background: linear-gradient(to bottom, rgba(30, 30, 35, 0.95), rgba(15, 15, 18, 0.98)); border-left: 4px solid var(--accent-primary); border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); border-left: 4px solid var(--accent-primary); box-shadow: 0 15px 35px rgba(0,0,0,0.4); }
+        .prompt-instruction { padding: 18px 22px; color: #e4e4e7; font-size: 0.95rem; font-weight: 700; line-height: 1.6; background: rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(0, 0, 0, 0.3); }
+        .prompt-text { padding: 18px 22px; color: #fff; font-size: 0.95rem; background: rgba(0, 0, 0, 0.4); border-bottom: 1px solid rgba(255, 255, 255, 0.02); word-break: break-word; white-space: pre-wrap; font-weight: 600; font-family: monospace, sans-serif; }
+        .prompt-copy-btn { width: 100%; background: rgba(10, 10, 12, 0.8); color: #fff; border: none; padding: 18px; font-weight: 900; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s; }
+        .prompt-copy-btn:hover { background: rgba(255, 255, 255, 0.05); color: var(--accent-primary); }
 
         /* Chart Fix */
         .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 30px; }
@@ -221,8 +169,8 @@
         .stat-card h2 { color: #fff; font-size: 1.8rem; font-weight: 900; line-height: 1; }
         .status-badge { display: inline-block; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; }
         .status-active { background: rgba(16, 185, 129, 0.2); color: var(--accent-success); }
-        .status-blocked { background: rgba(239, 68, 68, 0.2); color: var(--accent-danger); }
-        .btn-block, .btn-unblock { border-radius: 8px; font-size: 0.85rem; font-weight: 800; cursor: pointer; padding: 6px 12px; margin-top: 5px; width: 100%; transition: 0.3s;}
+        .status-blocked { background: rgba(239, 68, 68, 0.2); color: var(--accent-danger); border: 1px solid rgba(239, 68, 68, 0.3); }
+        .btn-block, .btn-unblock { border-radius: 8px; font-size: 0.85rem; font-weight: 800; cursor: pointer; padding: 6px 12px; margin-top: 5px; width: 100%; transition: 0.3s; display: inline-flex; justify-content: center; align-items: center; gap: 6px; border: none; }
         .btn-block { background: rgba(239, 68, 68, 0.15); color: var(--accent-danger); border: 1px solid rgba(239, 68, 68, 0.4); }
         .btn-block:hover { background: var(--accent-danger); color: #fff;}
         .btn-unblock { background: rgba(16, 185, 129, 0.15); color: var(--accent-success); border: 1px solid rgba(16, 185, 129, 0.4); }
@@ -275,15 +223,17 @@
     
     <div id="toast"><i class="fas fa-info-circle"></i> <span id="toastMsg">Action Successful!</span></div>
 
+    <!-- MAIN LOADER (Spidy Logo) -->
     <div id="initLoader">
-        <img src="https://i.postimg.cc/cJdGqYHG/IMG-20260524-WA0004.jpg" class="loader-logo" alt="Loading">
+        <img src="https://i.postimg.cc/fygCB079/file-00000000d51c720780078a0d21adc0f6.png" class="loader-logo" alt="Loading">
     </div>
 
+    <!-- LOGIN SCREEN -->
     <div id="authScreen">
         <div class="login-wrapper">
             <div class="logo-container">
-                <img src="https://i.postimg.cc/cJdGqYHG/IMG-20260524-WA0004.jpg" alt="Logo" class="brand-logo">
-                <h1 class="brand-title">MULTIVERSE BOOKS</h1>
+                <img src="https://i.postimg.cc/fygCB079/file-00000000d51c720780078a0d21adc0f6.png" alt="Logo" class="brand-logo">
+                <h1 class="brand-title">SPIDY BOOK HUB</h1>
                 <p class="brand-subtitle">System Core | Data Control | Analytics Hub</p>
             </div>
             <div class="glass-card">
@@ -303,9 +253,10 @@
         </div>
     </div>
 
+    <!-- MAIN DASHBOARD WRAPPER -->
     <div id="appWrapper">
         <header class="app-header">
-            <img src="https://i.postimg.cc/cJdGqYHG/IMG-20260524-WA0004.jpg" alt="Logo" class="header-logo">
+            <img src="https://i.postimg.cc/fygCB079/file-00000000d51c720780078a0d21adc0f6.png" alt="Logo" class="header-logo">
             <h1 class="header-title">VAULT PANEL</h1>
             <button class="header-btn power-btn" id="headerLogoutBtn"><i class="fas fa-power-off"></i></button>
         </header>
@@ -313,12 +264,17 @@
         <nav class="top-nav-tabs">
             <button class="tab-btn active" id="navManage" onclick="switchTab('manage')"><i class="fas fa-layer-group"></i> Manage Vault</button>
             <button class="tab-btn" id="navPrompts" onclick="switchTab('prompts')"><i class="fas fa-terminal"></i> Prompts</button>
+            
+            <!-- NAYA TAB: User Reports -->
+            <button class="tab-btn" id="navReports" onclick="switchTab('reports')"><i class="fas fa-flag"></i> Reports</button>
+            
             <button class="tab-btn" id="navAnalytics" onclick="switchTab('analytics')"><i class="fas fa-chart-pie"></i> System Analytics</button>
             <button class="tab-btn" id="navUsers" onclick="switchTab('users')"><i class="fas fa-users-cog"></i> Manage Users</button>
         </nav>
 
         <main class="main-content">
             
+            <!-- MANAGE VAULT SECTION -->
             <div id="sectionManageBooks" class="section-container active">
                 <div class="premium-form-card">
                     <div class="card-header"><i class="fas fa-pen-nib"></i> Publish New Book</div>
@@ -359,6 +315,7 @@
                 </div>
             </div>
 
+            <!-- PROMPTS SECTION -->
             <div id="sectionPrompts" class="section-container">
                 <div class="premium-form-card" style="margin-bottom: 30px;">
                     <div class="card-header"><i class="fas fa-plus-circle"></i> Add New Prompt</div>
@@ -372,6 +329,45 @@
                 <div id="promptsContainer"><div class="empty-state">Loading prompts...</div></div>
             </div>
 
+            <!-- 🌟 NAYA SECTION: REPORTS & ISSUES 🌟 -->
+            <div id="sectionReports" class="section-container">
+                <div class="admin-card">
+                    <div class="card-header-large"><div class="title-left"><i class="fas fa-flag"></i> User Reports & Issues</div></div>
+                    
+                    <div class="user-stats-grid">
+                        <div class="stat-card">
+                            <i class="fas fa-exclamation-triangle" style="color:#ef4444; background:rgba(239, 68, 68, 0.1);"></i>
+                            <div class="stat-info"><h4>Pending Issues</h4><h2 id="statPendingReports">0</h2></div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-check-circle" style="color:#10b981; background:rgba(16, 185, 129, 0.1);"></i>
+                            <div class="stat-info"><h4>Resolved</h4><h2 id="statResolvedReports">0</h2></div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-inbox" style="color:#3b82f6; background:rgba(59, 130, 246, 0.1);"></i>
+                            <div class="stat-info"><h4>Total Reports</h4><h2 id="statTotalReports">0</h2></div>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="books-table">
+                            <thead>
+                                <tr>
+                                    <th>Book Details</th>
+                                    <th>Issue Type</th>
+                                    <th>Reported On</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="reportsTableBody">
+                                <tr><td colspan="4" class="empty-state">Loading reports...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANALYTICS SECTION -->
             <div id="sectionAnalytics" class="section-container">
                 <div class="admin-card" style="padding-bottom: 20px;">
                     <div class="card-header-large"><div class="title-left"><i class="fas fa-chart-line"></i> Dashboard Analytics</div></div>
@@ -394,13 +390,14 @@
                 </div>
             </div>
 
+            <!-- USERS SECTION -->
             <div id="sectionUsers" class="section-container">
                 <div class="admin-card">
                     <div class="card-header-large"><div class="title-left"><i class="fas fa-users-shield"></i> User Access Management</div></div>
                     
                     <div class="user-stats-grid">
-                        <div class="stat-card"><i class="fas fa-users" style="color:#3b82f6;"></i><div class="stat-info"><h4>Total Logins</h4><h2 id="statTotalUsers">0</h2></div></div>
-                        <div class="stat-card"><i class="fas fa-user-check" style="color:#10b981;"></i><div class="stat-info"><h4>Active Valid</h4><h2 id="statActiveUsers">0</h2></div></div>
+                        <div class="stat-card"><i class="fas fa-users" style="color:#3b82f6; background:rgba(59, 130, 246, 0.1);"></i><div class="stat-info"><h4>Total Logins</h4><h2 id="statTotalUsers">0</h2></div></div>
+                        <div class="stat-card"><i class="fas fa-user-check" style="color:#10b981; background:rgba(16, 185, 129, 0.1);"></i><div class="stat-info"><h4>Active Valid</h4><h2 id="statActiveUsers">0</h2></div></div>
                         <div class="stat-card" style="border-color:rgba(239, 68, 68, 0.2);"><i class="fas fa-user-slash" style="color:#ef4444; background:rgba(239, 68, 68, 0.1);"></i><div class="stat-info"><h4>Deleted / Invalid</h4><h2 id="statInvalidUsers">0</h2></div></div>
                     </div>
 
@@ -469,6 +466,10 @@
                 document.getElementById('sectionPrompts').classList.add('active'); 
                 document.getElementById('navPrompts').classList.add('active'); 
             } 
+            else if (tab === 'reports') {  // NAYA REPORTS LOGIC
+                document.getElementById('sectionReports').classList.add('active'); 
+                document.getElementById('navReports').classList.add('active'); 
+            }
             else if (tab === 'analytics') { 
                 document.getElementById('sectionAnalytics').classList.add('active'); 
                 document.getElementById('navAnalytics').classList.add('active'); 
@@ -528,11 +529,12 @@
 
         let CURRENT_ADMIN_NAME = "USER"; 
         let CURRENT_ADMIN_EMAIL = "";
-        let CURRENT_ADMIN_PHOTO = "https://i.postimg.cc/D0BF1b77/file-000000000e847207a64f6711d825a859.png";
+        let CURRENT_ADMIN_PHOTO = "https://i.postimg.cc/fygCB079/file-00000000d51c720780078a0d21adc0f6.png"; // Using new logo as fallback
         
         window.IS_SUPER_ADMIN = false;
 
         let dbBooks = []; let filteredBooks = []; let dbLogs = []; let dbUsers = []; let filteredUsers = []; let dbPrompts = [];
+        let dbReports = []; // For storing Reports Data
         let currentPage = 1; const booksPerPage = 10;
         let myLangChart = null; let myActivityChart = null;
 
@@ -546,8 +548,17 @@
                     document.getElementById('roleText').innerText = "Super Admin";
                     document.getElementById('navManage').style.display = 'flex';
                     document.getElementById('navPrompts').style.display = 'flex';
+                    document.getElementById('navReports').style.display = 'flex'; // Show Reports Nav
                     document.getElementById('navAnalytics').style.display = 'flex';
                     document.getElementById('navUsers').style.display = 'flex';
+
+                    // Fetch Reports
+                    onSnapshot(query(collection(db, "reports"), orderBy("createdAt", "desc")), (snapshot) => {
+                        dbReports = [];
+                        snapshot.forEach(doc => { let r = doc.data(); r.id = doc.id; dbReports.push(r); });
+                        window.renderReportsTable();
+                        window.updateReportStats();
+                    });
 
                     onSnapshot(query(collection(db, "activity_logs"), orderBy("timestamp", "desc"), limit(100)), (snapshot) => { dbLogs = []; snapshot.forEach(doc => { let l = doc.data(); l.id = doc.id; dbLogs.push(l); }); renderLogs(); });
                     onSnapshot(collection(db, "users"), (snapshot) => { dbUsers = []; snapshot.forEach(doc => { let d = doc.data(); d.uid = doc.id; dbUsers.push(d); }); window.handleUserFilterChange(); window.updateLiveUserStats(); });
@@ -585,6 +596,7 @@
                     document.getElementById('roleText').innerText = "Admin";
                     document.getElementById('navManage').style.display = 'flex';
                     document.getElementById('navPrompts').style.display = 'none';
+                    document.getElementById('navReports').style.display = 'none'; // Hide Reports Nav
                     document.getElementById('navAnalytics').style.display = 'none';
                     document.getElementById('navUsers').style.display = 'none';
                 }
@@ -640,6 +652,74 @@
         });
 
         document.getElementById('headerLogoutBtn').addEventListener('click', () => { if(confirm("Are you sure you want to exit and logout?")) { signOut(auth).catch(() => {}); } });
+
+        /* 🌟 NEW REPORT FUNCTIONS 🌟 */
+        window.updateReportStats = function() {
+            if(!document.getElementById('statTotalReports')) return;
+            const total = dbReports.length;
+            const resolved = dbReports.filter(r => r.status === 'Resolved').length;
+            const pending = total - resolved;
+            
+            document.getElementById('statTotalReports').innerText = total;
+            document.getElementById('statResolvedReports').innerText = resolved;
+            document.getElementById('statPendingReports').innerText = pending;
+        }
+
+        window.renderReportsTable = function() {
+            const tbody = document.getElementById('reportsTableBody');
+            if (dbReports.length === 0) { 
+                tbody.innerHTML = `<tr><td colspan="4" class="empty-state">No issues reported yet. All good!</td></tr>`; 
+                return; 
+            }
+            let html = "";
+            dbReports.forEach(r => {
+                let statusBadge = r.status === 'Resolved' 
+                    ? `<span class="status-badge status-active"><i class="fas fa-check"></i> Resolved</span>` 
+                    : `<span class="status-badge status-blocked"><i class="fas fa-spinner fa-spin"></i> Pending</span>`;
+                
+                let issueName = r.issueType || 'Unknown Issue';
+                let issueBadge = `<span style="padding: 4px 10px; background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase;">${issueName}</span>`;
+
+                let actionBtns = "";
+                if(r.status !== 'Resolved') {
+                    actionBtns += `<button class="btn-unblock" onclick="resolveReport('${r.id}')" style="margin-right: 8px; width: auto;"><i class="fas fa-check-circle"></i> Fix It</button>`;
+                }
+                actionBtns += `<button class="btn-block" onclick="deleteReport('${r.id}')" style="width: auto;"><i class="fas fa-trash"></i></button>`;
+
+                let dateObj = new Date(r.createdAt || Date.now());
+                let dateStr = dateObj.toLocaleDateString('en-GB') + " " + dateObj.toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit'});
+
+                html += `<tr>
+                    <td><strong style="color:#fff; display:block; font-size:1.05rem;">${r.bookTitle || 'Unknown Book'}</strong></td>
+                    <td>${issueBadge}</td>
+                    <td><div style="color:#a1a1aa; font-size:0.9rem;"><i class="far fa-clock"></i> ${dateStr}</div><br>${statusBadge}</td>
+                    <td><div style="display: flex;">${actionBtns}</div></td>
+                </tr>`;
+            });
+            tbody.innerHTML = html;
+        }
+
+        window.resolveReport = async function(id) {
+            if(!window.IS_SUPER_ADMIN) return;
+            if(confirm("Mark this issue as fixed/resolved?")) {
+                try {
+                    await updateDoc(doc(db, "reports", id), { status: 'Resolved' });
+                    showToast("Issue marked as Resolved!");
+                } catch(e) { showToast("Error updating report", "error"); console.error(e); }
+            }
+        }
+
+        window.deleteReport = async function(id) {
+            if(!window.IS_SUPER_ADMIN) return;
+            if(confirm("Delete this report record permanently?")) {
+                try {
+                    await deleteDoc(doc(db, "reports", id));
+                    showToast("Report Deleted!");
+                } catch(e) { showToast("Error deleting", "error"); console.error(e); }
+            }
+        }
+        /* 🌟 END REPORT FUNCTIONS 🌟 */
+
 
         window.autoCleanOldLogs = async function(manual = false) {
             if(!window.IS_SUPER_ADMIN) return;
@@ -765,7 +845,7 @@
             let html = ""; dbLogs.forEach(log => {
                 let badge = ''; let recoveryBtn = '';
                 if(log.action === 'ADD') { badge = `<span class="log-badge log-add"><i class="fas fa-plus"></i> Uploaded</span>`; } else if(log.action === 'EDIT') { badge = `<span class="log-badge log-edit"><i class="fas fa-pen"></i> Modified</span>`; } else if(log.action === 'DELETE') { badge = `<span class="log-badge log-delete"><i class="fas fa-trash"></i> Deleted</span>`; if(log.deletedData) { recoveryBtn = `<br><button class="btn-recover" onclick="recoverBook('${log.id}')"><i class="fas fa-undo"></i> Recover Vault</button>`; } } else if (log.action === 'RESTORE') { badge = `<span class="log-badge log-restore"><i class="fas fa-trash-restore"></i> Restored</span>`; }
-                let img = log.image ? `<img src="${log.image}" class="log-table-img">` : ''; let avatar = log.adminPhoto ? log.adminPhoto : "https://i.postimg.cc/D0BF1b77/file-000000000e847207a64f6711d825a859.png"; let emailDisplay = log.adminEmail ? `<div class="log-admin-email">${log.adminEmail}</div>` : '';
+                let img = log.image ? `<img src="${log.image}" class="log-table-img">` : ''; let avatar = log.adminPhoto ? log.adminPhoto : "https://i.postimg.cc/fygCB079/file-00000000d51c720780078a0d21adc0f6.png"; let emailDisplay = log.adminEmail ? `<div class="log-admin-email">${log.adminEmail}</div>` : '';
                 html += `<tr><td>${badge}</td><td style="display:flex; align-items:center;">${img}<span style="color:#fff; font-weight:500; font-size:1.05rem;">${log.bookTitle}</span></td><td><div class="log-admin-box"><img src="${avatar}" class="log-admin-avatar"><div style="display:flex; flex-direction:column;"><span class="log-admin-name">${log.adminName}</span>${emailDisplay}</div></div></td><td><div style="color:#a1a1aa; font-size:0.9rem;"><i class="far fa-clock" style="margin-right:5px;"></i> ${log.dateStr}</div>${recoveryBtn}</td></tr>`;
             }); tbody.innerHTML = html;
         }
@@ -801,4 +881,4 @@
         window.deleteUserRecord = async function(uid) { if(!window.IS_SUPER_ADMIN) return; if(confirm("Delete this corrupted record?")) { try { await deleteDoc(doc(db, "users", uid)); showToast("Deleted!"); } catch(e) { showToast("Error", "error"); console.error(e);} } }
     </script>
 </body>
-                                                                                                        </html>
+</html>
