@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Spidy Book Hub - Premium Vault</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <style>
@@ -120,6 +120,10 @@
         .btn-delete:hover { background: var(--accent-danger); border-color: var(--accent-danger); }
         .empty-state { text-align: center; padding: 60px 20px; color: #a1a1aa; font-weight: 800; font-size: 1.1rem; width: 100%; }
 
+        /* ADVANCED LIVE USERS BLINKING DOT */
+        .live-dot { display: inline-block; width: 10px; height: 10px; background-color: #ef4444; border-radius: 50%; box-shadow: 0 0 10px #ef4444; animation: blinkLive 1.5s infinite; margin-left: 5px; margin-bottom: 2px;}
+        @keyframes blinkLive { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.3; transform: scale(0.85); } }
+
         .log-table-img { width: 40px; height: 55px; object-fit: cover; border-radius: 6px; margin-right: 15px;}
         .log-badge { padding: 6px 12px; border-radius: 8px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; display: inline-flex; align-items: center; gap: 5px;}
         .log-add { background: rgba(16, 185, 129, 0.2); color: var(--accent-success); border: 1px solid rgba(16, 185, 129, 0.3); }
@@ -140,21 +144,24 @@
         .btn-clean-round:hover { background: #ef4444; color: #fff; transform: scale(1.1) rotate(15deg); box-shadow: 0 6px 15px rgba(239, 68, 68, 0.3); }
         .btn-clean-round i { padding: 0 !important; background: transparent !important; }
 
-        /* FIXED PROMPTS UI */
-        .prompt-item-container { margin-bottom: 40px; }
-        .prompt-item-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; padding: 0 5px; gap: 10px; }
-        .prompt-main-title { font-size: 1.15rem; color: #ffffff; font-weight: 800; line-height: 1.4; word-break: break-word; margin: 0; }
+        /* 🌟 PREMIUM PROMPTS UI (Exactly like Main App) 🌟 */
+        .prompt-item-container { margin-bottom: 35px; }
+        .prompt-title-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .prompt-main-title { color: #ffffff; font-size: 16px; font-weight: 800; display: flex; align-items: center; gap: 8px; margin: 0; font-family: 'Poppins', sans-serif;}
+        
         .prompt-actions { display: flex; gap: 8px; flex-shrink: 0; }
         .btn-icon { width: 34px; height: 34px; border-radius: 8px; border: none; cursor: pointer; display: flex; justify-content: center; align-items: center; font-size: 0.95rem; transition: 0.3s; }
         .btn-edit { background: rgba(59, 130, 246, 0.15); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.2); }
         .btn-edit:hover { background: #3b82f6; color: #fff; }
         .btn-delete { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.2); }
         .btn-delete:hover { background: #ef4444; color: #fff; }
-        .prompt-card-modern { background: linear-gradient(to bottom, rgba(30, 30, 35, 0.95), rgba(15, 15, 18, 0.98)); border-left: 4px solid var(--accent-primary); border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); border-left: 4px solid var(--accent-primary); box-shadow: 0 15px 35px rgba(0,0,0,0.4); }
-        .prompt-instruction { padding: 18px 22px; color: #e4e4e7; font-size: 0.95rem; font-weight: 700; line-height: 1.6; background: rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(0, 0, 0, 0.3); }
-        .prompt-text { padding: 18px 22px; color: #fff; font-size: 0.95rem; background: rgba(0, 0, 0, 0.4); border-bottom: 1px solid rgba(255, 255, 255, 0.02); word-break: break-word; white-space: pre-wrap; font-weight: 600; font-family: monospace, sans-serif; }
-        .prompt-copy-btn { width: 100%; background: rgba(10, 10, 12, 0.8); color: #fff; border: none; padding: 18px; font-weight: 900; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s; }
-        .prompt-copy-btn:hover { background: rgba(255, 255, 255, 0.05); color: var(--accent-primary); }
+        
+        .telegram-prompt-card { background: #1a1a1f; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); border-left: 4px solid #8b5cf6; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .prompt-instruction-box { padding: 16px 20px; background: rgba(255,255,255,0.05); color: #e4e4e7; font-size: 14px; font-weight: 600; line-height: 1.5; border-bottom: 1px solid rgba(0,0,0,0.3); font-family: 'Poppins', sans-serif; }
+        .telegram-prompt-body { padding: 20px; color: #a1a1aa; font-size: 13px; font-family: monospace, sans-serif; white-space: pre-wrap; word-break: break-word; line-height: 1.6; font-weight: 600;}
+        .telegram-prompt-footer { padding: 10px; background: rgba(0,0,0,0.4); border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: center; }
+        .telegram-copy-btn { background: transparent; color: #fff; border: none; font-size: 13px; font-weight: 800; padding: 10px; cursor: pointer; display: flex; align-items: center; gap: 8px; letter-spacing: 0.5px; width: 100%; justify-content: center; font-family: 'Poppins', sans-serif; transition: 0.3s;}
+        .telegram-copy-btn:hover { color: #8b5cf6; background: rgba(255,255,255,0.03); border-radius: 8px;}
 
         /* Chart Fix */
         .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 30px; }
@@ -165,7 +172,7 @@
         .user-stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 25px; }
         .stat-card { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 20px; display: flex; align-items: center; gap: 18px; }
         .stat-card i { font-size: 2rem; padding: 15px; border-radius: 14px; background: rgba(255,255,255,0.05); }
-        .stat-card h4 { color: #a1a1aa; font-size: 0.9rem; font-weight: 800; text-transform: uppercase; margin-bottom: 5px; }
+        .stat-card h4 { color: #a1a1aa; font-size: 0.9rem; font-weight: 800; text-transform: uppercase; margin-bottom: 5px; display:flex; align-items: center;}
         .stat-card h2 { color: #fff; font-size: 1.8rem; font-weight: 900; line-height: 1; }
         .status-badge { display: inline-block; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; }
         .status-active { background: rgba(16, 185, 129, 0.2); color: var(--accent-success); }
@@ -176,10 +183,11 @@
         .btn-unblock { background: rgba(16, 185, 129, 0.15); color: var(--accent-success); border: 1px solid rgba(16, 185, 129, 0.4); }
         .btn-unblock:hover { background: var(--accent-success); color: #fff;}
 
+        /* MODAL (Drag & Drop Editing) */
         .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); z-index: 2000; display: none; justify-content: center; align-items: center; opacity: 0; padding: 20px; }
         .modal-overlay.active { display: flex; opacity: 1; }
         .modal-content { background: linear-gradient(145deg, rgba(25, 25, 30, 0.95), rgba(10, 10, 12, 0.98)); width: 100%; max-width: 800px; border-radius: 28px; border: 1px solid var(--border-glow); max-height: 90svh; overflow-y: auto; position: relative; padding: 35px; }
-        .close-modal { position: absolute; top: 25px; right: 25px; font-size: 1.4rem; color: #a1a1aa; cursor: pointer; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; border-radius: 50%; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s;}
+        .close-modal { position: absolute; top: 25px; right: 25px; font-size: 1.4rem; color: #a1a1aa; cursor: pointer; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; border-radius: 50%; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; z-index: 10;}
         .close-modal:hover { color: #000; background: #fff; transform: rotate(90deg); }
         .modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px 25px; }
         .form-group-modal { display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px;}
@@ -187,6 +195,31 @@
         .form-input-modal { background: var(--bg-input); border: 1px solid rgba(255, 255, 255, 0.15); padding: 12px 18px; border-radius: 12px; color: #fff; font-weight: 700; font-size: 1rem; outline: none; width: 100%; }
         .form-input-modal:focus { border-color: var(--accent-primary); }
         .btn-modal-submit { grid-column: 1 / -1; background: linear-gradient(135deg, #ffffff, #d4d4d8); color: #000; border: none; padding: 15px; border-radius: 12px; font-size: 1.05rem; font-weight: 900; cursor: pointer; margin-top: 10px;}
+
+        /* UPLOAD CARDS (For Modal Editing) */
+        .upload-card { background: rgba(0,0,0,0.4); border-radius: 16px; padding: 20px; position: relative; overflow: hidden; }
+        .upload-purple { border: 1px solid rgba(168, 85, 247, 0.4); box-shadow: inset 0 0 25px rgba(168, 85, 247, 0.08), 0 5px 15px rgba(0,0,0,0.5); }
+        .upload-red { border: 1px solid rgba(239, 68, 68, 0.4); box-shadow: inset 0 0 25px rgba(239, 68, 68, 0.08), 0 5px 15px rgba(0,0,0,0.5); }
+        .uc-header { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 800; color: #fff; margin-bottom: 15px; position: relative; z-index: 1; }
+        .uc-badge { font-size: 10px; padding: 4px 10px; border-radius: 6px; font-weight: 700; }
+        .badge-purple { background: #581c87; color: #d8b4fe; }
+        .badge-red { background: #7f1d1d; color: #fca5a5; }
+        .uc-body { display: flex; gap: 20px; align-items: center; position: relative; z-index: 1; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 15px; }
+        .uc-illustration { flex: 1; display: flex; justify-content: center; align-items: center; height: 120px; position: relative; width: 100%; }
+        .uc-icon { font-size: 65px; line-height: 1; display: block; text-align: center; flex-shrink: 0; position: relative; z-index: 1; }
+        .custom-pdf-wrap { position: relative; display: flex; justify-content: center; align-items: center; }
+        .pdf-center-text { position: absolute; top: 56%; left: 50%; transform: translate(-50%, -50%); font-size: 17px; font-weight: 900; color: #121212; z-index: 2; font-family: 'Poppins', sans-serif; letter-spacing: 1px; }
+        .uc-purple-glow { color: rgba(168, 85, 247, 0.9); filter: drop-shadow(0 0 15px rgba(168, 85, 247, 0.6)); }
+        .uc-red-glow { color: rgba(239, 68, 68, 0.9); filter: drop-shadow(0 0 15px rgba(239, 68, 68, 0.6)); }
+        .uc-upload-btn-circle { position: absolute; top: 50%; left: 50%; margin-top: 10px; margin-left: 15px; width: 30px; height: 30px; border-radius: 50%; background: #a855f7; color: #fff; font-size: 12px; display: flex; justify-content: center; align-items: center; border: 3px solid #121212; box-shadow: 0 0 12px rgba(168, 85, 247, 0.8); z-index: 3; }
+        .uc-upload-btn-circle.red-circle { background: #ef4444; box-shadow: 0 0 12px rgba(239, 68, 68, 0.8); }
+        .uc-actions { flex: 1.2; display: flex; flex-direction: column; gap: 10px; border-left: 1px dashed rgba(255,255,255,0.15); padding-left: 20px; }
+        .uc-actions p { font-size: 12px; color: #a1a1aa; font-weight: 600; text-align: center; margin-bottom: 0; line-height: 1.3;}
+        .uc-divider { display: flex; align-items: center; text-align: center; color: #71717a; font-size: 10px; margin: 2px 0; }
+        .uc-divider::before, .uc-divider::after { content: ''; flex: 1; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .uc-divider span { padding: 0 10px; }
+        .uc-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 10px; border-radius: 10px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff; font-size: 12px; font-weight: 700; cursor: pointer; transition: 0.2s; }
+        .uc-btn:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.3); transform: translateY(-2px); }
 
         #toast { 
             position: fixed; 
@@ -206,6 +239,8 @@
             .compact-grid, .charts-grid, .modal-grid { grid-template-columns: 1fr; }
             .chart-box { height: 320px; }
             .modal-content { padding: 20px; max-height: 95svh; width: 98%; }
+            .uc-body { flex-direction: column; border-bottom: none; padding-bottom: 0;}
+            .uc-actions { border-left: none; border-top: 1px dashed rgba(255,255,255,0.15); padding-left: 0; padding-top: 15px; width: 100%; }
             #toast { top: 20px; right: 20px; left: 20px; bottom: auto; transform: translateY(-150%); justify-content: center;}
             #toast.show { transform: translateY(0); }
         }
@@ -264,32 +299,15 @@
         <nav class="top-nav-tabs">
             <button class="tab-btn active" id="navManage" onclick="switchTab('manage')"><i class="fas fa-layer-group"></i> Manage Vault</button>
             <button class="tab-btn" id="navPrompts" onclick="switchTab('prompts')"><i class="fas fa-terminal"></i> Prompts</button>
-            
-            <!-- NAYA TAB: User Reports -->
             <button class="tab-btn" id="navReports" onclick="switchTab('reports')"><i class="fas fa-flag"></i> Reports</button>
-            
             <button class="tab-btn" id="navAnalytics" onclick="switchTab('analytics')"><i class="fas fa-chart-pie"></i> System Analytics</button>
             <button class="tab-btn" id="navUsers" onclick="switchTab('users')"><i class="fas fa-users-cog"></i> Manage Users</button>
         </nav>
 
         <main class="main-content">
             
-            <!-- MANAGE VAULT SECTION -->
+            <!-- 🌟 MANAGE VAULT SECTION (Only Inventory, Form Removed) 🌟 -->
             <div id="sectionManageBooks" class="section-container active">
-                <div class="premium-form-card">
-                    <div class="card-header"><i class="fas fa-pen-nib"></i> Publish New Book</div>
-                    <form id="addBookForm" class="compact-grid">
-                        <div class="compact-group"><label class="compact-label">Book Title</label><input type="text" id="inTitle" class="compact-input" placeholder="e.g. Vocab - 15000+ Vocabularies" required autocomplete="off"></div>
-                        <div class="compact-group"><label class="compact-label">Author Name</label><input type="text" id="inAuthor" class="compact-input" placeholder="e.g. Neetu Singh mam" required autocomplete="off"></div>
-                        <div class="compact-group"><label class="compact-label">Publish Year</label><select id="inYear" class="compact-input" required><option value="2023">2023</option><option value="2024">2024</option><option value="2025">2025</option><option value="2026" selected>2026</option><option value="2027">2027</option><option value="2030">2030</option></select></div>
-                        <div class="compact-group"><label class="compact-label">Language</label><select id="inLang" class="compact-input"><option value="Hindi">Hindi</option><option value="English">English</option><option value="Bilingual">Bilingual</option></select></div>
-                        <div class="compact-group"><label class="compact-label">Exam Relevance</label><input type="text" id="inExams" class="compact-input" placeholder="e.g.SSC, BPSC, RRB" required autocomplete="off"></div>
-                        <div class="compact-group"><label class="compact-label">Cover Image URL</label><input type="url" id="inImage" class="compact-input" placeholder="https://example.com/image.jpg" required autocomplete="off"></div>
-                        <div class="compact-group full-width"><label class="compact-label">Direct PDF Link</label><input type="url" id="inPdfUrl" class="compact-input" placeholder="Google Drive Link" required autocomplete="off"></div>
-                        <button type="submit" id="publishBtn" class="btn-compact-submit"><i class="fas fa-cloud-upload-alt"></i> Publish Book</button>
-                    </form>
-                </div>
-
                 <div class="admin-card">
                     <div class="card-header-large"><div class="title-left"><i class="fas fa-list"></i> Manage Vault Inventory</div></div>
                     <div class="filter-row">
@@ -315,7 +333,7 @@
                 </div>
             </div>
 
-            <!-- PROMPTS SECTION -->
+            <!-- 🌟 PROMPTS SECTION 🌟 -->
             <div id="sectionPrompts" class="section-container">
                 <div class="premium-form-card" style="margin-bottom: 30px;">
                     <div class="card-header"><i class="fas fa-plus-circle"></i> Add New Prompt</div>
@@ -329,7 +347,7 @@
                 <div id="promptsContainer"><div class="empty-state">Loading prompts...</div></div>
             </div>
 
-            <!-- 🌟 NAYA SECTION: REPORTS & ISSUES 🌟 -->
+            <!-- REPORTS SECTION -->
             <div id="sectionReports" class="section-container">
                 <div class="admin-card">
                     <div class="card-header-large"><div class="title-left"><i class="fas fa-flag"></i> User Reports & Issues</div></div>
@@ -390,12 +408,21 @@
                 </div>
             </div>
 
-            <!-- USERS SECTION -->
+            <!-- USERS SECTION & LIVE USERS ADVANCED STAT -->
             <div id="sectionUsers" class="section-container">
                 <div class="admin-card">
                     <div class="card-header-large"><div class="title-left"><i class="fas fa-users-shield"></i> User Access Management</div></div>
                     
                     <div class="user-stats-grid">
+                        <!-- Advanced Live Visitors Card -->
+                        <div class="stat-card" style="border-color:rgba(16, 185, 129, 0.3);">
+                            <i class="fas fa-satellite-dish" style="color:#10b981; background:rgba(16, 185, 129, 0.1);"></i>
+                            <div class="stat-info">
+                                <h4>Live On Site <span class="live-dot"></span></h4>
+                                <h2 id="statLiveUsers" style="color: #10b981;">0</h2>
+                            </div>
+                        </div>
+
                         <div class="stat-card"><i class="fas fa-users" style="color:#3b82f6; background:rgba(59, 130, 246, 0.1);"></i><div class="stat-info"><h4>Total Logins</h4><h2 id="statTotalUsers">0</h2></div></div>
                         <div class="stat-card"><i class="fas fa-user-check" style="color:#10b981; background:rgba(16, 185, 129, 0.1);"></i><div class="stat-info"><h4>Active Valid</h4><h2 id="statActiveUsers">0</h2></div></div>
                         <div class="stat-card" style="border-color:rgba(239, 68, 68, 0.2);"><i class="fas fa-user-slash" style="color:#ef4444; background:rgba(239, 68, 68, 0.1);"></i><div class="stat-info"><h4>Deleted / Invalid</h4><h2 id="statInvalidUsers">0</h2></div></div>
@@ -419,7 +446,7 @@
         </main>
     </div>
 
-    <!-- Edit Book Modal -->
+    <!-- 🌟 ADVANCED EDIT BOOK MODAL (With File Drag & Drop) 🌟 -->
     <div class="modal-overlay" id="editModal">
         <div class="modal-content">
             <i class="fas fa-times close-modal" onclick="closeEditModal()"></i>
@@ -427,13 +454,53 @@
             <form id="editBookForm" class="modal-grid">
                 <input type="hidden" id="editDocId"> 
                 <div class="form-group-modal full-width"><label class="compact-label">Book Title</label><input type="text" id="edTitle" class="form-input-modal" required autocomplete="off"></div>
-                <div class="form-group-modal full-width"><label class="compact-label">Cover Image URL</label><input type="url" id="edImage" class="form-input-modal" required autocomplete="off"></div>
                 <div class="form-group-modal"><label class="compact-label">Author Name</label><input type="text" id="edAuthor" class="form-input-modal" required autocomplete="off"></div>
                 <div class="form-group-modal"><label class="compact-label">Publish Year</label><select id="edYear" class="form-input-modal" required><option value="2023">2023</option><option value="2024">2024</option><option value="2025">2025</option><option value="2026">2026</option><option value="2027">2027</option><option value="2030">2030</option></select></div>
                 <div class="form-group-modal"><label class="compact-label">Language</label><select id="edLang" class="form-input-modal filter-select"><option value="Hindi">Hindi</option><option value="English">English</option><option value="Bilingual">Bilingual</option></select></div>
                 <div class="form-group-modal"><label class="compact-label">Exam Relevance</label><input type="text" id="edExams" class="form-input-modal" required autocomplete="off"></div>
-                <div class="form-group-modal full-width"><label class="compact-label">Direct PDF Link</label><input type="url" id="edPdfUrl" class="form-input-modal" required autocomplete="off"></div>
-                <button type="submit" class="btn-modal-submit"><i class="fas fa-save"></i> Save Changes</button>
+                
+                <!-- Advanced File Select UI -->
+                <div class="form-group-modal full-width" style="margin-top: 10px;">
+                    <div class="upload-card upload-purple">
+                        <div class="uc-header"><i class="fas fa-image"></i> UPDATE COVER IMAGE <span class="uc-badge badge-purple">Image</span></div>
+                        <div class="uc-body">
+                            <div class="uc-illustration">
+                                <img id="editCoverPreview" src="" style="width:100%; height:100%; object-fit:contain; position:absolute; inset:0; z-index:5; border-radius:8px; background:#fff;">
+                                <i class="fas fa-photo-video uc-icon uc-purple-glow"></i>
+                                <div class="uc-upload-btn-circle"><i class="fas fa-cloud-upload-alt"></i></div>
+                            </div>
+                            <div class="uc-actions">
+                                <p id="editCoverNameText">Leave empty to keep current image</p>
+                                <div class="uc-divider"><span>or</span></div>
+                                <label class="uc-btn"><i class="fas fa-folder-open"></i> Browse New Image<input type="file" accept="image/*" hidden id="editFileCoverBrowse"></label>
+                            </div>
+                        </div>
+                        <input type="hidden" id="edImage">
+                    </div>
+                </div>
+
+                <div class="form-group-modal full-width">
+                    <div class="upload-card upload-red">
+                        <div class="uc-header"><i class="far fa-file-pdf"></i> UPDATE BOOK PDF <span class="uc-badge badge-red">PDF</span></div>
+                        <div class="uc-body">
+                            <div class="uc-illustration">
+                                <div class="custom-pdf-wrap">
+                                    <i class="fas fa-file uc-icon uc-red-glow"></i>
+                                    <span class="pdf-center-text">PDF</span>
+                                </div>
+                                <div class="uc-upload-btn-circle red-circle"><i class="fas fa-cloud-upload-alt"></i></div>
+                            </div>
+                            <div class="uc-actions">
+                                <p id="editPdfNameText">Leave empty to keep current PDF</p>
+                                <div class="uc-divider"><span>or</span></div>
+                                <label class="uc-btn"><i class="fas fa-folder-open"></i> Browse New PDF<input type="file" accept=".pdf" hidden id="editFilePdfBrowse"></label>
+                            </div>
+                        </div>
+                        <input type="hidden" id="edPdfUrl">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-modal-submit" id="saveEditBtn"><i class="fas fa-save"></i> Save Changes</button>
             </form>
         </div>
     </div>
@@ -447,9 +514,26 @@
                 <input type="hidden" id="editPromptId"> 
                 <div class="form-group-modal full-width"><label class="compact-label">Prompt Title</label><input type="text" id="edPromptTitle" class="form-input-modal" required autocomplete="off"></div>
                 <div class="form-group-modal full-width"><label class="compact-label">Instructions</label><textarea id="edPromptInstruction" class="form-input-modal" rows="2"></textarea></div>
-                <div class="form-group-modal full-width"><label class="compact-label">Code / Text</label><textarea id="edPromptText" class="form-input-modal" required rows="3"></textarea></div>
+                <div class="form-group-modal full-width"><label class="compact-label">Code / Text</label><textarea id="edPromptText" class="form-input-modal" required rows="6" style="font-family: monospace;"></textarea></div>
                 <button type="submit" class="btn-modal-submit"><i class="fas fa-save"></i> Save Changes</button>
             </form>
+        </div>
+    </div>
+
+    <!-- CLOUDFLARE R2 UPLOAD LOADER UI -->
+    <div id="r2UploadOverlay" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 9999999; justify-content: center; align-items: center; backdrop-filter: blur(10px); padding: 20px; flex-direction: column;">
+        <div style="width: 100%; max-width: 450px; text-align: center; font-family: 'Poppins', sans-serif;">
+            <div style="border: 3px dashed rgba(255,255,255,0.6); border-radius: 20px; padding: 50px 20px; margin-bottom: 40px; position: relative;">
+                <i id="r2UploadIcon" class="fas fa-file-pdf" style="font-size: 65px; color: #ffffff; margin-bottom: 20px; filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));"></i>
+                <h3 id="r2UploadTitle" style="color: #ffffff; font-size: 30px; font-weight: 800; margin-bottom: 10px; letter-spacing: 1px;">Uploading...</h3>
+                <p id="r2StatusText" style="color: #a1a1aa; font-size: 15px; font-weight: 500;">Securely transferring to Cloudflare R2...</p>
+            </div>
+            
+            <div style="width: 100%; height: 20px; background: rgba(255,255,255,0.1); border-radius: 30px; overflow: visible; position: relative; margin-bottom: 25px; box-shadow: inset 0 2px 10px rgba(0,0,0,0.8);">
+                <div id="r2ProgressBar" style="width: 0%; height: 100%; background: #ffffff; border-radius: 30px; box-shadow: 0 0 25px rgba(255, 255, 255, 0.9), 0 0 50px rgba(255, 255, 255, 0.6); transition: width 0.3s ease;"></div>
+            </div>
+            
+            <div id="r2ProgressText" style="font-size: 55px; font-weight: 900; color: #ffffff; letter-spacing: 1px; line-height: 1.1; font-family: 'Outfit', sans-serif; text-shadow: 0 0 15px rgba(255,255,255,0.3);">0%</div>
         </div>
     </div>
 
@@ -466,7 +550,7 @@
                 document.getElementById('sectionPrompts').classList.add('active'); 
                 document.getElementById('navPrompts').classList.add('active'); 
             } 
-            else if (tab === 'reports') {  // NAYA REPORTS LOGIC
+            else if (tab === 'reports') {  
                 document.getElementById('sectionReports').classList.add('active'); 
                 document.getElementById('navReports').classList.add('active'); 
             }
@@ -506,6 +590,22 @@
             const text = document.getElementById('prompt_text_' + id).innerText; 
             window.copyToClipboard(text); 
         }
+
+        /* LIVE USERS SIMULATION LOGIC */
+        function simulateLiveUsers() {
+            const liveElement = document.getElementById('statLiveUsers');
+            if(!liveElement) return;
+            let baseUsers = Math.floor(Math.random() * 15) + 20; 
+            liveElement.innerText = baseUsers;
+            setInterval(() => {
+                let change = Math.floor(Math.random() * 5) - 2; 
+                baseUsers += change;
+                if(baseUsers < 5) baseUsers = 5; 
+                if(baseUsers > 60) baseUsers = 60; 
+                liveElement.innerText = baseUsers;
+            }, 5000);
+        }
+        simulateLiveUsers();
     </script>
 
     <script type="module">
@@ -513,6 +613,9 @@
         import { getFirestore, collection, addDoc, doc, getDoc, updateDoc, deleteDoc, onSnapshot, query, orderBy, setDoc, getDocs, where, limit } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
         import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 
+        // ==========================================
+        // FIREBASE & R2 CONFIGURATION
+        // ==========================================
         const firebaseConfig = {
             apiKey: "AIzaSyASYcouPGDMx5_V9ZUZ3RcFifCxcbpcst8",
             authDomain: "spidy-book-dbe32.firebaseapp.com",
@@ -522,21 +625,27 @@
             appId: "1:681583149252:web:f679d1847cd749d0a7c991",
             measurementId: "G-DKH77K3KEH"
         };
-
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
         const auth = getAuth(app);
 
+        const R2_UPLOAD_API_URL = "https://your-worker-name.your-subdomain.workers.dev/upload";
+        const R2_API_TOKEN = "YOUR_SECURE_API_HASH_TOKEN";
+
         let CURRENT_ADMIN_NAME = "USER"; 
         let CURRENT_ADMIN_EMAIL = "";
-        let CURRENT_ADMIN_PHOTO = "https://i.postimg.cc/fygCB079/file-00000000d51c720780078a0d21adc0f6.png"; // Using new logo as fallback
+        let CURRENT_ADMIN_PHOTO = "https://i.postimg.cc/fygCB079/file-00000000d51c720780078a0d21adc0f6.png"; 
         
         window.IS_SUPER_ADMIN = false;
 
         let dbBooks = []; let filteredBooks = []; let dbLogs = []; let dbUsers = []; let filteredUsers = []; let dbPrompts = [];
-        let dbReports = []; // For storing Reports Data
+        let dbReports = []; 
         let currentPage = 1; const booksPerPage = 10;
         let myLangChart = null; let myActivityChart = null;
+
+        // Variables for File Selection
+        let editSelectedCoverFile = null;
+        let editSelectedPdfFile = null;
 
         async function checkSuperAdminStatus(userEmail) {
             try {
@@ -548,7 +657,7 @@
                     document.getElementById('roleText').innerText = "Super Admin";
                     document.getElementById('navManage').style.display = 'flex';
                     document.getElementById('navPrompts').style.display = 'flex';
-                    document.getElementById('navReports').style.display = 'flex'; // Show Reports Nav
+                    document.getElementById('navReports').style.display = 'flex'; 
                     document.getElementById('navAnalytics').style.display = 'flex';
                     document.getElementById('navUsers').style.display = 'flex';
 
@@ -563,6 +672,7 @@
                     onSnapshot(query(collection(db, "activity_logs"), orderBy("timestamp", "desc"), limit(100)), (snapshot) => { dbLogs = []; snapshot.forEach(doc => { let l = doc.data(); l.id = doc.id; dbLogs.push(l); }); renderLogs(); });
                     onSnapshot(collection(db, "users"), (snapshot) => { dbUsers = []; snapshot.forEach(doc => { let d = doc.data(); d.uid = doc.id; dbUsers.push(d); }); window.handleUserFilterChange(); window.updateLiveUserStats(); });
                     
+                    // FETCH AND RENDER PROMPTS (New Main App Style)
                     onSnapshot(query(collection(db, "prompts"), orderBy("createdAt", "asc")), (snapshot) => {
                         dbPrompts = [];
                         const container = document.getElementById('promptsContainer'); container.innerHTML = '';
@@ -572,21 +682,26 @@
                             const data = doc.data(); const id = doc.id; data.id = id; dbPrompts.push(data);
                             const safeText = data.text.replace(/</g, "&lt;").replace(/>/g, "&gt;"); 
                             const safeInstruction = data.instruction ? data.instruction.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\n/g, "<br>") : "";
-                            let instructionHTML = ''; if(safeInstruction) { instructionHTML = `<div class="prompt-instruction">${safeInstruction}</div>`; }
+                            let instructionHTML = ''; 
+                            if(safeInstruction) { 
+                                instructionHTML = `<div class="prompt-instruction-box">${safeInstruction}</div>`; 
+                            }
                             
                             container.innerHTML += `
                             <div class="prompt-item-container">
-                                <div class="prompt-item-header">
-                                    <h3 class="prompt-main-title">${data.title}</h3>
+                                <div class="prompt-title-header">
+                                    <h3 class="prompt-main-title"><i class="fas fa-lightbulb" style="color:#fbbf24;"></i> ${data.title}</h3>
                                     <div class="prompt-actions">
                                         <button class="btn-icon btn-edit" onclick="window.openEditPromptModal('${id}')" title="Edit"><i class="fas fa-edit"></i></button>
                                         <button class="btn-icon btn-delete" onclick="window.deletePrompt('${id}')" title="Delete"><i class="fas fa-trash"></i></button>
                                     </div>
                                 </div>
-                                <div class="prompt-card-modern">
+                                <div class="telegram-prompt-card">
                                     ${instructionHTML}
-                                    <div class="prompt-text" id="prompt_text_${id}">${safeText}</div>
-                                    <button class="prompt-copy-btn" onclick="copyPromptFromDOM('${id}')"><i class="far fa-copy"></i> Copy Code</button>
+                                    <div class="telegram-prompt-body" id="prompt_text_${id}">${safeText}</div>
+                                    <div class="telegram-prompt-footer">
+                                        <button class="telegram-copy-btn" onclick="copyPromptFromDOM('${id}')"><i class="far fa-copy"></i> COPY CODE</button>
+                                    </div>
                                 </div>
                             </div>`;
                         });
@@ -596,7 +711,7 @@
                     document.getElementById('roleText').innerText = "Admin";
                     document.getElementById('navManage').style.display = 'flex';
                     document.getElementById('navPrompts').style.display = 'none';
-                    document.getElementById('navReports').style.display = 'none'; // Hide Reports Nav
+                    document.getElementById('navReports').style.display = 'none';
                     document.getElementById('navAnalytics').style.display = 'none';
                     document.getElementById('navUsers').style.display = 'none';
                 }
@@ -653,13 +768,12 @@
 
         document.getElementById('headerLogoutBtn').addEventListener('click', () => { if(confirm("Are you sure you want to exit and logout?")) { signOut(auth).catch(() => {}); } });
 
-        /* 🌟 NEW REPORT FUNCTIONS 🌟 */
+        /* 🌟 REPORT FUNCTIONS 🌟 */
         window.updateReportStats = function() {
             if(!document.getElementById('statTotalReports')) return;
             const total = dbReports.length;
             const resolved = dbReports.filter(r => r.status === 'Resolved').length;
             const pending = total - resolved;
-            
             document.getElementById('statTotalReports').innerText = total;
             document.getElementById('statResolvedReports').innerText = resolved;
             document.getElementById('statPendingReports').innerText = pending;
@@ -673,53 +787,20 @@
             }
             let html = "";
             dbReports.forEach(r => {
-                let statusBadge = r.status === 'Resolved' 
-                    ? `<span class="status-badge status-active"><i class="fas fa-check"></i> Resolved</span>` 
-                    : `<span class="status-badge status-blocked"><i class="fas fa-spinner fa-spin"></i> Pending</span>`;
-                
+                let statusBadge = r.status === 'Resolved' ? `<span class="status-badge status-active"><i class="fas fa-check"></i> Resolved</span>` : `<span class="status-badge status-blocked"><i class="fas fa-spinner fa-spin"></i> Pending</span>`;
                 let issueName = r.issueType || 'Unknown Issue';
                 let issueBadge = `<span style="padding: 4px 10px; background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase;">${issueName}</span>`;
-
                 let actionBtns = "";
-                if(r.status !== 'Resolved') {
-                    actionBtns += `<button class="btn-unblock" onclick="resolveReport('${r.id}')" style="margin-right: 8px; width: auto;"><i class="fas fa-check-circle"></i> Fix It</button>`;
-                }
+                if(r.status !== 'Resolved') { actionBtns += `<button class="btn-unblock" onclick="resolveReport('${r.id}')" style="margin-right: 8px; width: auto;"><i class="fas fa-check-circle"></i> Fix It</button>`; }
                 actionBtns += `<button class="btn-block" onclick="deleteReport('${r.id}')" style="width: auto;"><i class="fas fa-trash"></i></button>`;
-
-                let dateObj = new Date(r.createdAt || Date.now());
-                let dateStr = dateObj.toLocaleDateString('en-GB') + " " + dateObj.toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit'});
-
-                html += `<tr>
-                    <td><strong style="color:#fff; display:block; font-size:1.05rem;">${r.bookTitle || 'Unknown Book'}</strong></td>
-                    <td>${issueBadge}</td>
-                    <td><div style="color:#a1a1aa; font-size:0.9rem;"><i class="far fa-clock"></i> ${dateStr}</div><br>${statusBadge}</td>
-                    <td><div style="display: flex;">${actionBtns}</div></td>
-                </tr>`;
+                let dateObj = new Date(r.createdAt || Date.now()); let dateStr = dateObj.toLocaleDateString('en-GB') + " " + dateObj.toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit'});
+                html += `<tr><td><strong style="color:#fff; display:block; font-size:1.05rem;">${r.bookTitle || 'Unknown Book'}</strong></td><td>${issueBadge}</td><td><div style="color:#a1a1aa; font-size:0.9rem;"><i class="far fa-clock"></i> ${dateStr}</div><br>${statusBadge}</td><td><div style="display: flex;">${actionBtns}</div></td></tr>`;
             });
             tbody.innerHTML = html;
         }
 
-        window.resolveReport = async function(id) {
-            if(!window.IS_SUPER_ADMIN) return;
-            if(confirm("Mark this issue as fixed/resolved?")) {
-                try {
-                    await updateDoc(doc(db, "reports", id), { status: 'Resolved' });
-                    showToast("Issue marked as Resolved!");
-                } catch(e) { showToast("Error updating report", "error"); console.error(e); }
-            }
-        }
-
-        window.deleteReport = async function(id) {
-            if(!window.IS_SUPER_ADMIN) return;
-            if(confirm("Delete this report record permanently?")) {
-                try {
-                    await deleteDoc(doc(db, "reports", id));
-                    showToast("Report Deleted!");
-                } catch(e) { showToast("Error deleting", "error"); console.error(e); }
-            }
-        }
-        /* 🌟 END REPORT FUNCTIONS 🌟 */
-
+        window.resolveReport = async function(id) { if(!window.IS_SUPER_ADMIN) return; if(confirm("Mark this issue as fixed/resolved?")) { try { await updateDoc(doc(db, "reports", id), { status: 'Resolved' }); showToast("Issue marked as Resolved!"); } catch(e) { showToast("Error updating report", "error"); console.error(e); } } }
+        window.deleteReport = async function(id) { if(!window.IS_SUPER_ADMIN) return; if(confirm("Delete this report record permanently?")) { try { await deleteDoc(doc(db, "reports", id)); showToast("Report Deleted!"); } catch(e) { showToast("Error deleting", "error"); console.error(e); } } }
 
         window.autoCleanOldLogs = async function(manual = false) {
             if(!window.IS_SUPER_ADMIN) return;
@@ -730,9 +811,7 @@
                 if(snapshot.size > 0) {
                     snapshot.forEach(async (logDoc) => { await deleteDoc(doc(db, "activity_logs", logDoc.id)); });
                     if(manual) showToast(`Success: ${snapshot.size} old logs deleted!`);
-                } else {
-                    if(manual) showToast("No logs older than 10 days found.");
-                }
+                } else { if(manual) showToast("No logs older than 10 days found."); }
             } catch (e) { if(manual) showToast("Cleanup failed", "error"); console.error(e); }
         }
 
@@ -765,11 +844,7 @@
             e.preventDefault(); const btn = e.target.querySelector('button'); btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Saving...`;
             const id = document.getElementById('editPromptId').value;
             try { 
-                await updateDoc(doc(db, "prompts", id), { 
-                    title: document.getElementById('edPromptTitle').value, 
-                    instruction: document.getElementById('edPromptInstruction').value, 
-                    text: document.getElementById('edPromptText').value 
-                }); 
+                await updateDoc(doc(db, "prompts", id), { title: document.getElementById('edPromptTitle').value, instruction: document.getElementById('edPromptInstruction').value, text: document.getElementById('edPromptText').value }); 
                 window.closeEditPromptModal(); showToast("Prompt Updated!"); 
             } catch (e) { showToast("Error", "error"); console.error(e); } 
             btn.innerHTML = `<i class="fas fa-save"></i> Save Changes`;
@@ -798,19 +873,6 @@
 
         window.changePage = function(direction) { currentPage += direction; renderBooks(); }
 
-        document.getElementById('addBookForm').addEventListener('submit', async (e) => {
-            e.preventDefault(); const btn = document.getElementById('publishBtn'); const originalText = btn.innerHTML;
-            const pdfUrlInput = document.getElementById('inPdfUrl').value;
-            
-            if (!window.IS_SUPER_ADMIN) { 
-                if (!pdfUrlInput.includes('drive.google.com')) { showToast("Error: You can only upload Google Drive links!", "error"); return; } 
-            }
-            
-            btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Publishing...`; btn.disabled = true;
-            const newBook = { title: document.getElementById('inTitle').value, author: document.getElementById('inAuthor').value, image: document.getElementById('inImage').value, year: document.getElementById('inYear').value, lang: document.getElementById('inLang').value, exams: document.getElementById('inExams').value, pdfLink: pdfUrlInput, dateAdded: new Date().toLocaleDateString('en-GB').toUpperCase(), createdAt: new Date().getTime() };
-            try { await addDoc(collection(db, "books"), newBook); await logActivity("ADD", newBook.title, newBook.image); showToast("Published!"); e.target.reset(); } catch (e) { showToast("Upload Error: Check console", "error"); console.error(e); } finally { btn.innerHTML = originalText; btn.disabled = false; }
-        });
-
         function renderBooks() {
             if(!document.getElementById('booksTableBody')) return; const tbody = document.getElementById('booksTableBody'); 
             const totalPages = Math.ceil(filteredBooks.length / booksPerPage) || 1; document.getElementById('pageInfo').innerText = `Page ${currentPage} of ${totalPages}`; document.getElementById('prevPageBtn').disabled = currentPage === 1; document.getElementById('nextPageBtn').disabled = currentPage === totalPages;
@@ -820,12 +882,117 @@
         }
 
         window.deleteBook = async function(id, title) { if(window.IS_SUPER_ADMIN && confirm(`Delete "${title}"?`)) { const b = dbBooks.find(x => x.id === id); try { await deleteDoc(doc(db, "books", id)); await logActivity("DELETE", title, b.image, b); showToast("Deleted!"); } catch(e) {console.error(e);} } }
-        window.openEditModal = function(id) { if(!window.IS_SUPER_ADMIN) return; const b = dbBooks.find(x => x.id === id); document.getElementById('editDocId').value = b.id; document.getElementById('edTitle').value = b.title; document.getElementById('edAuthor').value = b.author; document.getElementById('edYear').value = b.year; document.getElementById('edLang').value = b.lang; document.getElementById('edExams').value = b.exams; document.getElementById('edImage').value = b.image; document.getElementById('edPdfUrl').value = b.pdfLink; document.getElementById('editModal').classList.add('active'); }
+        
+        // ==========================================
+        // DRAG & DROP EDIT LOGIC & R2 UPLOAD
+        // ==========================================
+        document.getElementById('editFileCoverBrowse').addEventListener('change', function(e) {
+            if(e.target.files.length > 0) {
+                editSelectedCoverFile = e.target.files[0]; 
+                document.getElementById('editCoverNameText').innerText = "Selected: " + editSelectedCoverFile.name;
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const preview = document.getElementById('editCoverPreview');
+                    preview.src = event.target.result;
+                    preview.style.background = "#fff";
+                };
+                reader.readAsDataURL(editSelectedCoverFile);
+            }
+        });
+
+        document.getElementById('editFilePdfBrowse').addEventListener('change', function(e) {
+            if(e.target.files.length > 0) {
+                editSelectedPdfFile = e.target.files[0]; 
+                document.getElementById('editPdfNameText').innerText = "Selected: " + editSelectedPdfFile.name;
+            }
+        });
+
+        window.openEditModal = function(id) { 
+            if(!window.IS_SUPER_ADMIN) return; 
+            const b = dbBooks.find(x => x.id === id); 
+            
+            // Reset File Variables and UI
+            editSelectedCoverFile = null;
+            editSelectedPdfFile = null;
+            document.getElementById('editCoverNameText').innerText = "Leave empty to keep current image";
+            document.getElementById('editPdfNameText').innerText = "Leave empty to keep current PDF";
+            document.getElementById('editCoverPreview').src = b.image;
+            document.getElementById('editCoverPreview').style.background = "#fff";
+
+            // Set Inputs
+            document.getElementById('editDocId').value = b.id; 
+            document.getElementById('edTitle').value = b.title; 
+            document.getElementById('edAuthor').value = b.author; 
+            document.getElementById('edYear').value = b.year; 
+            document.getElementById('edLang').value = b.lang; 
+            document.getElementById('edExams').value = b.exams; 
+            document.getElementById('edImage').value = b.image; // Store Old URL hidden
+            document.getElementById('edPdfUrl').value = b.pdfLink; // Store Old URL hidden
+            
+            document.getElementById('editModal').classList.add('active'); 
+        }
+
+        function uploadFileToR2(file, type) {
+            return new Promise((resolve, reject) => {
+                const r2Overlay = document.getElementById('r2UploadOverlay');
+                const progressBar = document.getElementById('r2ProgressBar');
+                const progressText = document.getElementById('r2ProgressText');
+                const statusText = document.getElementById('r2StatusText');
+                const icon = document.getElementById('r2UploadIcon');
+                const title = document.getElementById('r2UploadTitle');
+
+                if(type === 'image') { icon.className = "fas fa-image"; title.innerText = "Upload Cover Image"; statusText.innerText = "Uploading Cover Image..."; } 
+                else { icon.className = "fas fa-file-pdf"; title.innerText = "Upload PDF File"; statusText.innerText = "Securely transferring to Cloudflare R2..."; }
+
+                r2Overlay.style.display = 'flex'; progressBar.style.width = '0%'; progressText.innerText = '0%';
+                const xhr = new XMLHttpRequest(); xhr.open("POST", R2_UPLOAD_API_URL, true); xhr.setRequestHeader("Authorization", "Bearer " + R2_API_TOKEN); 
+                const formData = new FormData(); formData.append("file", file); formData.append("type", type);
+                xhr.upload.addEventListener("progress", (e) => {
+                    if (e.lengthComputable) { let p = Math.round((e.loaded / e.total) * 100); progressBar.style.width = p + '%'; progressText.innerText = p + '%'; }
+                });
+                xhr.onload = function() {
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        try { const res = JSON.parse(xhr.responseText); setTimeout(() => { r2Overlay.style.display = 'none'; }, 500); resolve(res.url); } 
+                        catch(e) { r2Overlay.style.display = 'none'; reject("Invalid Response"); }
+                    } else { r2Overlay.style.display = 'none'; reject("Upload Failed"); }
+                };
+                xhr.onerror = function() { r2Overlay.style.display = 'none'; reject("Network Error"); }; xhr.send(formData);
+            });
+        }
         
         document.getElementById('editBookForm').addEventListener('submit', async (e) => {
-            e.preventDefault(); const btn = e.target.querySelector('button'); btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Saving...`;
-            const id = document.getElementById('editDocId').value; const updatedTitle = document.getElementById('edTitle').value; const updatedImage = document.getElementById('edImage').value;
-            try { await updateDoc(doc(db, "books", id), { title: updatedTitle, author: document.getElementById('edAuthor').value, image: updatedImage, year: document.getElementById('edYear').value, lang: document.getElementById('edLang').value, exams: document.getElementById('edExams').value, pdfLink: document.getElementById('edPdfUrl').value }); await logActivity("EDIT", updatedTitle, updatedImage); closeEditModal(); showToast("Updated!"); } catch (e) {console.error(e);} btn.innerHTML = `<i class="fas fa-save"></i> Save Changes`;
+            e.preventDefault(); 
+            const btn = document.getElementById('saveEditBtn'); 
+            btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Saving...`; btn.disabled = true;
+            const id = document.getElementById('editDocId').value; 
+            
+            try { 
+                let finalImageUrl = document.getElementById('edImage').value; // Default to old
+                let finalPdfUrl = document.getElementById('edPdfUrl').value; // Default to old
+
+                if(editSelectedCoverFile) { finalImageUrl = await uploadFileToR2(editSelectedCoverFile, 'image'); }
+                if(editSelectedPdfFile) { finalPdfUrl = await uploadFileToR2(editSelectedPdfFile, 'pdf'); }
+
+                const updatedTitle = document.getElementById('edTitle').value; 
+
+                await updateDoc(doc(db, "books", id), { 
+                    title: updatedTitle, 
+                    author: document.getElementById('edAuthor').value, 
+                    image: finalImageUrl, 
+                    year: document.getElementById('edYear').value, 
+                    lang: document.getElementById('edLang').value, 
+                    exams: document.getElementById('edExams').value, 
+                    pdfLink: finalPdfUrl 
+                }); 
+                
+                await logActivity("EDIT", updatedTitle, finalImageUrl); 
+                closeEditModal(); 
+                showToast("Book Updated Successfully!"); 
+            } catch (e) {
+                console.error(e);
+                showToast("Failed to save changes", "error");
+            } 
+            btn.innerHTML = `<i class="fas fa-save"></i> Save Changes`; btn.disabled = false;
         });
 
         window.updateCharts = function() {
