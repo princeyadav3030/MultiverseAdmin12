@@ -12,12 +12,15 @@
         :root {
             --bg-body: #050505;
             --bg-input: rgba(0, 0, 0, 0.6);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(255, 255, 255, 0.15);
             --text-primary: #ffffff;
             --text-secondary: #a1a1aa;
             --accent-primary: #8b5cf6; 
             --accent-success: #10b981; 
             --accent-danger: #ef4444; 
             --accent-info: #3b82f6; 
+            --accent-purple: #8b5cf6; 
         }
 
         ::-webkit-scrollbar { width: 0px !important; height: 0px !important; background: transparent !important; display: none !important; }
@@ -82,17 +85,41 @@
            🌟 SEAMLESS ADMIN CARD (TABLES & CONTENT) 🌟 
            ========================================== */
         .admin-card { 
-            background: transparent; 
-            border: none; 
-            box-shadow: none; 
-            padding: 10px 0; 
-            border-radius: 0; 
+            background: transparent !important; 
+            backdrop-filter: none !important; 
+            border: none !important; 
+            box-shadow: none !important; 
+            padding: 10px 0 !important; 
+            border-radius: 0 !important; 
             margin-bottom: 40px; 
             width: 100%; 
         }
 
+        .card-header-large { 
+            display: flex; align-items: center; gap: 15px; 
+            margin-bottom: 25px; padding-bottom: 15px; 
+            border-bottom: 1px dashed rgba(255,255,255,0.15) !important; 
+            font-size: 1.25rem; font-weight: 800; color: #fff; 
+            letter-spacing: 0.5px; font-family: 'Poppins', sans-serif; 
+            justify-content: space-between; 
+            flex-wrap: wrap; 
+        }
+        
+        .card-header-large .title-left { display: flex; align-items: center; gap: 15px; }
+
+        .card-header-large i { 
+            width: 44px; height: 44px; 
+            background: rgba(124, 58, 237, 0.15) !important; 
+            border: 1px solid rgba(124, 58, 237, 0.3) !important; 
+            border-radius: 12px !important; 
+            display: flex; justify-content: center; align-items: center; 
+            color: #c084fc !important; font-size: 18px !important; 
+            box-shadow: 0 0 15px rgba(124, 58, 237, 0.2) !important; 
+            flex-shrink: 0; padding: 0 !important; 
+        }
+
         /* ==========================================
-           🌟 PROMPT FORM CARD (RESTORED AS BOX) 🌟 
+           🌟 PROMPT FORM CARD (RESTORED AS PREMIUM BOX, LEFT ALIGNED) 🌟 
            ========================================== */
         .premium-form-card { 
             background: linear-gradient(145deg, rgba(22, 22, 28, 0.6), rgba(12, 12, 16, 0.8)); 
@@ -106,25 +133,23 @@
             width: 100%; 
         }
         
-        .card-header-large, .premium-form-card .card-header { 
+        .premium-form-card .card-header {
             display: flex; align-items: center; gap: 15px; 
             margin-bottom: 25px; padding-bottom: 15px; 
             border-bottom: 1px dashed rgba(255,255,255,0.15); 
             font-size: 1.25rem; font-weight: 800; color: #fff; 
             letter-spacing: 0.5px; font-family: 'Poppins', sans-serif; 
-            justify-content: space-between; 
-            flex-wrap: wrap; 
+            justify-content: flex-start; /* LEFT ALIGNED HEADER */
         }
-        .card-header-large .title-left { display: flex; align-items: center; gap: 15px; }
 
-        .card-header-large i, .premium-form-card .card-header i { 
+        .premium-form-card .card-header i { 
             width: 44px; height: 44px; 
-            background: rgba(124, 58, 237, 0.15); 
-            border: 1px solid rgba(124, 58, 237, 0.3); 
+            background: rgba(139, 92, 246, 0.15); 
+            border: 1px solid rgba(139, 92, 246, 0.3); 
             border-radius: 12px; 
             display: flex; justify-content: center; align-items: center; 
             color: #c084fc; font-size: 18px; 
-            box-shadow: 0 0 15px rgba(124, 58, 237, 0.2); 
+            box-shadow: 0 0 15px rgba(139, 92, 246, 0.2); 
             flex-shrink: 0; padding: 0; 
         }
 
@@ -206,8 +231,14 @@
         .btn-unblock { background: rgba(16, 185, 129, 0.15); color: var(--accent-success); border: 1px solid rgba(16, 185, 129, 0.4); }
         .btn-unblock:hover { background: var(--accent-success); color: #fff;}
 
-        /* 🌟 EXACT MAIN APP PROMPTS UI 🌟 */
-        .telegram-prompt-wrapper { position: relative; margin-bottom: 40px; }
+        /* ==========================================
+           🌟 EXACT MAIN APP PROMPTS UI (SIZE CONTROLLED) 🌟 
+           ========================================== */
+        .telegram-prompt-wrapper { 
+            position: relative; 
+            margin-bottom: 40px; 
+            max-width: 800px; /* SIZE REDUCED HERE */
+        }
         .prompt-actions-floating { position: absolute; top: -12px; right: 0px; display: flex; gap: 8px; z-index: 10; }
         .btn-icon { width: 34px; height: 34px; border-radius: 8px; border: none; cursor: pointer; display: flex; justify-content: center; align-items: center; font-size: 0.95rem; transition: 0.3s; }
         .btn-edit { background: rgba(59, 130, 246, 0.15); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.2); }
@@ -217,8 +248,8 @@
         
         .prompt-instruction-text { color: #ffffff; font-weight: 700; font-size: 15px; margin-bottom: 12px; line-height: 1.6; padding-right: 80px; font-family: 'Poppins', sans-serif;}
         .telegram-prompt-card { background: #121212; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); border-left: 4px solid #8b5cf6; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .telegram-prompt-header { background: rgba(255,255,255,0.05); padding: 14px 18px; font-weight: 800; color: #fff; font-size: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; gap: 8px; font-family: 'Poppins', sans-serif;}
-        .telegram-prompt-body { padding: 20px; color: #a1a1aa; font-size: 13px; font-family: monospace, sans-serif; white-space: pre-wrap; word-break: break-word; line-height: 1.6; font-weight: 600; }
+        .telegram-prompt-header { background: rgba(255,255,255,0.05); padding: 12px 18px; font-weight: 800; color: #fff; font-size: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; gap: 8px; font-family: 'Poppins', sans-serif;}
+        .telegram-prompt-body { padding: 15px; color: #a1a1aa; font-size: 13px; font-family: monospace, sans-serif; white-space: pre-wrap; word-break: break-word; line-height: 1.6; font-weight: 600; }
         .telegram-prompt-footer { padding: 10px; background: rgba(0,0,0,0.4); border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: center; }
         .telegram-copy-btn { background: transparent; color: #fff; border: none; font-size: 13px; font-weight: 800; padding: 10px; cursor: pointer; display: flex; align-items: center; gap: 8px; letter-spacing: 0.5px; width: 100%; justify-content: center; font-family: 'Poppins', sans-serif; transition: 0.3s; outline: none; }
         .telegram-copy-btn:hover { background: rgba(255,255,255,0.05); color: #8b5cf6; border-radius: 8px; }
@@ -396,7 +427,7 @@
                 </div>
             </div>
 
-            <!-- 🌟 PROMPTS SECTION (Restored Box for Adding Prompt + Main App UI for List) 🌟 -->
+            <!-- 🌟 PROMPTS SECTION (Restored Box for Adding Prompt + Exact Main App UI for List) 🌟 -->
             <div id="sectionPrompts" class="section-container">
                 <div class="premium-form-card">
                     <div class="card-header"><i class="fas fa-plus-circle"></i> Add New Prompt</div>
@@ -1129,3 +1160,4 @@
     </script>
 </body>
 </html>
+
