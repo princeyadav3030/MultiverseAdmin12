@@ -12,15 +12,12 @@
         :root {
             --bg-body: #050505;
             --bg-input: rgba(0, 0, 0, 0.6);
-            --border-color: rgba(255, 255, 255, 0.08);
-            --border-glow: rgba(255, 255, 255, 0.15);
             --text-primary: #ffffff;
             --text-secondary: #a1a1aa;
             --accent-primary: #8b5cf6; 
             --accent-success: #10b981; 
             --accent-danger: #ef4444; 
             --accent-info: #3b82f6; 
-            --accent-purple: #8b5cf6; 
         }
 
         ::-webkit-scrollbar { width: 0px !important; height: 0px !important; background: transparent !important; display: none !important; }
@@ -66,13 +63,13 @@
 
         #appWrapper { display: none; width: 100%; height: 100%; flex-direction: column; position: relative; z-index: 1; }
 
-        .app-header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: rgba(10, 10, 12, 0.8); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-color); flex-shrink: 0; z-index: 100; }
+        .app-header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: rgba(10, 10, 12, 0.8); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08); flex-shrink: 0; z-index: 100; }
         .header-logo { width: 42px; height: 42px; border-radius: 12px; object-fit: cover; border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 4px 10px rgba(0,0,0,0.3); background: #0d0d12; }
         .header-btn { width: 42px; height: 42px; border-radius: 50%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: #fff; display: flex; justify-content: center; align-items: center; font-size: 1.2rem; cursor: pointer; transition: all 0.3s ease; }
         .power-btn { color: #ef4444; border-color: rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.05); }
         .header-title { font-size: 1.25rem; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; color: #ffffff; }
 
-        .top-nav-tabs { display: flex; gap: 10px; padding: 15px 20px; overflow-x: auto; white-space: nowrap; flex-shrink: 0; border-bottom: 1px solid var(--border-color); background: rgba(15, 15, 18, 0.5); z-index: 99;}
+        .top-nav-tabs { display: flex; gap: 10px; padding: 15px 20px; overflow-x: auto; white-space: nowrap; flex-shrink: 0; border-bottom: 1px solid rgba(255,255,255,0.08); background: rgba(15, 15, 18, 0.5); z-index: 99;}
         .tab-btn { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #a1a1aa; padding: 10px 18px; border-radius: 12px; font-size: 0.95rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.3s ease; outline: none; }
         .tab-btn.active { background: rgba(139, 92, 246, 0.1); border-color: var(--accent-primary); color: var(--accent-primary); box-shadow: 0 0 15px rgba(139, 92, 246, 0.15); }
 
@@ -82,44 +79,57 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
         /* ==========================================
-           🌟 EXACT SEAMLESS UI (NO OUTER CARD BORDERS) 🌟 
+           🌟 SEAMLESS ADMIN CARD (TABLES & CONTENT) 🌟 
            ========================================== */
-        .admin-card, .premium-form-card { 
-            background: transparent !important; 
-            backdrop-filter: none !important; 
-            border: none !important; 
-            box-shadow: none !important; 
-            padding: 10px 0 !important; 
-            border-radius: 0 !important; 
+        .admin-card { 
+            background: transparent; 
+            border: none; 
+            box-shadow: none; 
+            padding: 10px 0; 
+            border-radius: 0; 
             margin-bottom: 40px; 
             width: 100%; 
         }
 
+        /* ==========================================
+           🌟 PROMPT FORM CARD (RESTORED AS BOX) 🌟 
+           ========================================== */
+        .premium-form-card { 
+            background: linear-gradient(145deg, rgba(22, 22, 28, 0.6), rgba(12, 12, 16, 0.8)); 
+            backdrop-filter: blur(15px); 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            border-top: 2px solid rgba(139, 92, 246, 0.6); 
+            border-radius: 20px; 
+            padding: 25px 30px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6), inset 0 0 20px rgba(139, 92, 246, 0.05); 
+            margin-bottom: 40px; 
+            width: 100%; 
+        }
+        
         .card-header-large, .premium-form-card .card-header { 
             display: flex; align-items: center; gap: 15px; 
             margin-bottom: 25px; padding-bottom: 15px; 
-            border-bottom: 1px dashed rgba(255,255,255,0.15) !important; 
+            border-bottom: 1px dashed rgba(255,255,255,0.15); 
             font-size: 1.25rem; font-weight: 800; color: #fff; 
             letter-spacing: 0.5px; font-family: 'Poppins', sans-serif; 
             justify-content: space-between; 
             flex-wrap: wrap; 
         }
-        
         .card-header-large .title-left { display: flex; align-items: center; gap: 15px; }
 
         .card-header-large i, .premium-form-card .card-header i { 
             width: 44px; height: 44px; 
-            background: rgba(124, 58, 237, 0.15) !important; 
-            border: 1px solid rgba(124, 58, 237, 0.3) !important; 
-            border-radius: 12px !important; 
+            background: rgba(124, 58, 237, 0.15); 
+            border: 1px solid rgba(124, 58, 237, 0.3); 
+            border-radius: 12px; 
             display: flex; justify-content: center; align-items: center; 
-            color: #c084fc !important; font-size: 18px !important; 
-            box-shadow: 0 0 15px rgba(124, 58, 237, 0.2) !important; 
-            flex-shrink: 0; padding: 0 !important; 
+            color: #c084fc; font-size: 18px; 
+            box-shadow: 0 0 15px rgba(124, 58, 237, 0.2); 
+            flex-shrink: 0; padding: 0; 
         }
 
-        /* Forms inside Seamless Container */
-        .compact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px 20px; }
+        /* Forms inside Cards */
+        .compact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px 20px; }
         .compact-grid .full-width { grid-column: 1 / -1; }
         .compact-group { display: flex; flex-direction: column; gap: 8px; }
         
@@ -131,7 +141,7 @@
 
         select.compact-input { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23ffffff' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 18px center; padding-right: 40px;}
 
-        /* Search Boxes and Tables standing out on Seamless Background */
+        /* Search Boxes and Tables */
         .filter-row { display: flex; gap: 15px; margin-bottom: 20px; align-items: center; flex-wrap: wrap; }
         .search-box { flex: 1; min-width: 250px; position: relative; }
         .search-box i { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: #a1a1aa; }
@@ -154,25 +164,32 @@
         .btn-delete:hover { background: var(--accent-danger); border-color: var(--accent-danger); }
         .empty-state { text-align: center; padding: 60px 20px; color: #a1a1aa; font-weight: 800; font-size: 1.1rem; width: 100%; }
 
-        /* 🌟 PREMIUM INSET BOX SHADOWS FOR SMALL CARDS 🌟 */
-        .user-stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 25px; }
+        /* ==========================================
+           🌟 PREMIUM INSET BOX SHADOWS FOR SMALL CARDS 🌟 
+           ========================================== */
+        .user-stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; margin-bottom: 25px; }
         .stat-card { 
             background: #0a0a0c; 
-            border: 1px solid rgba(255,255,255,0.03); 
             border-radius: 18px; 
-            padding: 22px; 
+            padding: 24px 20px; 
             display: flex; 
             align-items: center; 
             gap: 18px; 
-            box-shadow: inset 0 10px 25px rgba(0,0,0,0.9), inset 0 -2px 5px rgba(255,255,255,0.02), 0 4px 10px rgba(0,0,0,0.5);
             transition: 0.3s;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
         }
-        .stat-card i { 
-            font-size: 2rem; 
-            padding: 16px; 
-            border-radius: 14px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4), inset 0 0 10px rgba(255,255,255,0.05);
-        }
+        .stat-card:hover { transform: translateY(-4px); filter: brightness(1.1); }
+        
+        /* Themed Colors for Borders & Deep Inset Shadows */
+        .stat-card.theme-green { border: 1px solid rgba(16, 185, 129, 0.4); box-shadow: inset 0 0 35px rgba(16, 185, 129, 0.1), 0 8px 25px rgba(0,0,0,0.5); }
+        .stat-card.theme-blue { border: 1px solid rgba(59, 130, 246, 0.4); box-shadow: inset 0 0 35px rgba(59, 130, 246, 0.1), 0 8px 25px rgba(0,0,0,0.5); }
+        .stat-card.theme-red { border: 1px solid rgba(239, 68, 68, 0.4); box-shadow: inset 0 0 35px rgba(239, 68, 68, 0.1), 0 8px 25px rgba(0,0,0,0.5); }
+
+        .stat-card i { font-size: 2rem; padding: 16px; border-radius: 14px; }
+        .stat-card.theme-green i { color: #10b981; background: rgba(16, 185, 129, 0.15); box-shadow: 0 0 15px rgba(16, 185, 129, 0.2), inset 0 0 10px rgba(16, 185, 129, 0.1); }
+        .stat-card.theme-blue i { color: #3b82f6; background: rgba(59, 130, 246, 0.15); box-shadow: 0 0 15px rgba(59, 130, 246, 0.2), inset 0 0 10px rgba(59, 130, 246, 0.1); }
+        .stat-card.theme-red i { color: #ef4444; background: rgba(239, 68, 68, 0.15); box-shadow: 0 0 15px rgba(239, 68, 68, 0.2), inset 0 0 10px rgba(239, 68, 68, 0.1); }
+
         .stat-card h4 { color: #a1a1aa; font-size: 0.9rem; font-weight: 800; text-transform: uppercase; margin-bottom: 5px; display:flex; align-items: center;}
         .stat-card h2 { color: #fff; font-size: 1.8rem; font-weight: 900; line-height: 1; }
         
@@ -189,7 +206,7 @@
         .btn-unblock { background: rgba(16, 185, 129, 0.15); color: var(--accent-success); border: 1px solid rgba(16, 185, 129, 0.4); }
         .btn-unblock:hover { background: var(--accent-success); color: #fff;}
 
-        /* 🌟 EXACT MAIN APP PROMPTS UI (Untouched structure, perfect match) 🌟 */
+        /* 🌟 EXACT MAIN APP PROMPTS UI 🌟 */
         .telegram-prompt-wrapper { position: relative; margin-bottom: 40px; }
         .prompt-actions-floating { position: absolute; top: -12px; right: 0px; display: flex; gap: 8px; z-index: 10; }
         .btn-icon { width: 34px; height: 34px; border-radius: 8px; border: none; cursor: pointer; display: flex; justify-content: center; align-items: center; font-size: 0.95rem; transition: 0.3s; }
@@ -239,9 +256,9 @@
         .modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px 25px; }
         .form-group-modal { display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px;}
         .form-group-modal.full-width { grid-column: 1 / -1; }
-        .form-input-modal { background: rgba(20, 20, 25, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); padding: 14px 18px; border-radius: 12px; color: #fff; font-weight: 700; font-size: 1rem; outline: none; width: 100%; box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);}
+        .form-input-modal { background: rgba(20, 20, 25, 0.6); border: 1px solid rgba(255, 255, 255, 0.15); padding: 14px 18px; border-radius: 12px; color: #fff; font-weight: 700; font-size: 1rem; outline: none; width: 100%; box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);}
         .form-input-modal:focus { border-color: var(--accent-primary); background: rgba(25, 25, 30, 0.8);}
-        .btn-modal-submit { grid-column: 1 / -1; background: linear-gradient(135deg, var(--accent-primary), #6d5dfc); color: #fff; border: none; padding: 18px; border-radius: 12px; font-size: 1.05rem; font-weight: 900; cursor: pointer; margin-top: 10px; box-shadow: 0 6px 20px rgba(124, 58, 237, 0.3); display: flex; justify-content: center; align-items: center; gap: 10px;}
+        .btn-modal-submit { grid-column: 1 / -1; background: linear-gradient(135deg, #ffffff, #d4d4d8); color: #000; border: none; padding: 18px; border-radius: 12px; font-size: 1.05rem; font-weight: 900; cursor: pointer; margin-top: 10px; box-shadow: 0 6px 20px rgba(124, 58, 237, 0.3); display: flex; justify-content: center; align-items: center; gap: 10px;}
 
         /* UPLOAD CARDS (For Modal Editing) */
         .upload-card { background: rgba(0,0,0,0.4); border-radius: 16px; padding: 20px; position: relative; overflow: hidden; }
@@ -281,6 +298,7 @@
 
         @media (max-width: 768px) {
             .main-content { padding: 20px 15px; }
+            .premium-form-card { padding: 20px 15px; border-radius: 16px; }
             .compact-grid, .charts-grid, .modal-grid { grid-template-columns: 1fr; }
             .chart-box { height: 320px; }
             .modal-content { padding: 20px; max-height: 95svh; width: 98%; }
@@ -378,9 +396,9 @@
                 </div>
             </div>
 
-            <!-- 🌟 PROMPTS SECTION (Seamless Add Prompt + Exact Main App UI for generated Prompts) 🌟 -->
+            <!-- 🌟 PROMPTS SECTION (Restored Box for Adding Prompt + Main App UI for List) 🌟 -->
             <div id="sectionPrompts" class="section-container">
-                <div class="premium-form-card" style="margin-bottom: 40px;">
+                <div class="premium-form-card">
                     <div class="card-header"><i class="fas fa-plus-circle"></i> Add New Prompt</div>
                     <div class="compact-grid">
                         <div class="compact-group full-width"><input type="text" id="newPromptTitle" class="compact-input" placeholder="Prompt Title (e.g. 1. How to use?)"></div>
@@ -392,22 +410,25 @@
                 <div id="promptsContainer"><div class="empty-state">Loading prompts...</div></div>
             </div>
 
-            <!-- REPORTS SECTION (Seamless UI) -->
+            <!-- 🌟 REPORTS SECTION 🌟 -->
             <div id="sectionReports" class="section-container">
                 <div class="admin-card">
                     <div class="card-header-large"><div class="title-left"><i class="fas fa-flag"></i> User Reports & Issues</div></div>
                     
                     <div class="user-stats-grid">
-                        <div class="stat-card">
-                            <i class="fas fa-exclamation-triangle" style="color:#ef4444; background:rgba(239, 68, 68, 0.15);"></i>
+                        <!-- Pending Issues (Red Theme) -->
+                        <div class="stat-card theme-red">
+                            <i class="fas fa-exclamation-triangle"></i>
                             <div class="stat-info"><h4>Pending Issues</h4><h2 id="statPendingReports">0</h2></div>
                         </div>
-                        <div class="stat-card">
-                            <i class="fas fa-check-circle" style="color:#10b981; background:rgba(16, 185, 129, 0.15);"></i>
+                        <!-- Resolved (Green Theme) -->
+                        <div class="stat-card theme-green">
+                            <i class="fas fa-check-circle"></i>
                             <div class="stat-info"><h4>Resolved</h4><h2 id="statResolvedReports">0</h2></div>
                         </div>
-                        <div class="stat-card">
-                            <i class="fas fa-inbox" style="color:#3b82f6; background:rgba(59, 130, 246, 0.15);"></i>
+                        <!-- Total Reports (Blue Theme) -->
+                        <div class="stat-card theme-blue">
+                            <i class="fas fa-inbox"></i>
                             <div class="stat-info"><h4>Total Reports</h4><h2 id="statTotalReports">0</h2></div>
                         </div>
                     </div>
@@ -430,7 +451,7 @@
                 </div>
             </div>
 
-            <!-- ANALYTICS SECTION (Seamless UI) -->
+            <!-- ANALYTICS SECTION -->
             <div id="sectionAnalytics" class="section-container">
                 <div class="admin-card" style="padding-bottom: 20px;">
                     <div class="card-header-large"><div class="title-left"><i class="fas fa-chart-line"></i> Dashboard Analytics</div></div>
@@ -453,24 +474,38 @@
                 </div>
             </div>
 
-            <!-- USERS SECTION (Seamless UI & Live User Dot) -->
+            <!-- 🌟 USERS SECTION & LIVE USERS ADVANCED STATS 🌟 -->
             <div id="sectionUsers" class="section-container">
                 <div class="admin-card">
                     <div class="card-header-large"><div class="title-left"><i class="fas fa-users-shield"></i> User Access Management</div></div>
                     
                     <div class="user-stats-grid">
-                        <!-- Advanced Live Visitors Card with Inset Shadow -->
-                        <div class="stat-card" style="border-color:rgba(16, 185, 129, 0.3);">
-                            <i class="fas fa-satellite-dish" style="color:#10b981; background:rgba(16, 185, 129, 0.15);"></i>
+                        <!-- Live On Site (Green Theme) -->
+                        <div class="stat-card theme-green">
+                            <i class="fas fa-satellite-dish"></i>
                             <div class="stat-info">
                                 <h4>Live On Site <span class="live-dot"></span></h4>
                                 <h2 id="statLiveUsers" style="color: #10b981;">0</h2>
                             </div>
                         </div>
 
-                        <div class="stat-card"><i class="fas fa-users" style="color:#3b82f6; background:rgba(59, 130, 246, 0.15);"></i><div class="stat-info"><h4>Total Logins</h4><h2 id="statTotalUsers">0</h2></div></div>
-                        <div class="stat-card"><i class="fas fa-user-check" style="color:#10b981; background:rgba(16, 185, 129, 0.15);"></i><div class="stat-info"><h4>Active Valid</h4><h2 id="statActiveUsers">0</h2></div></div>
-                        <div class="stat-card" style="border-color:rgba(239, 68, 68, 0.2);"><i class="fas fa-user-slash" style="color:#ef4444; background:rgba(239, 68, 68, 0.15);"></i><div class="stat-info"><h4>Deleted / Invalid</h4><h2 id="statInvalidUsers">0</h2></div></div>
+                        <!-- Total Logins (Blue Theme) -->
+                        <div class="stat-card theme-blue">
+                            <i class="fas fa-users"></i>
+                            <div class="stat-info"><h4>Total Logins</h4><h2 id="statTotalUsers">0</h2></div>
+                        </div>
+
+                        <!-- Active Valid (Green Theme) -->
+                        <div class="stat-card theme-green">
+                            <i class="fas fa-user-check"></i>
+                            <div class="stat-info"><h4>Active Valid</h4><h2 id="statActiveUsers">0</h2></div>
+                        </div>
+
+                        <!-- Deleted/Invalid (Red Theme) -->
+                        <div class="stat-card theme-red">
+                            <i class="fas fa-user-slash"></i>
+                            <div class="stat-info"><h4>Deleted / Invalid</h4><h2 id="statInvalidUsers">0</h2></div>
+                        </div>
                     </div>
 
                     <div class="filter-row">
